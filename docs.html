@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tài liệu Thành phần — NoryxUI</title>
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("noryxui.theme") || "dark"); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="dist/noryxui.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+</head>
+<body class="nx-grid">
+  <div class="nx-ambient-glow"></div>
+
+  <header class="nx-navbar">
+    <div class="nx-navbar-inner">
+      <a class="nx-brand" href="index.html">
+        <span class="nx-brand-logo">N</span>
+        <span>Noryx<span class="nx-text-primary">UI</span></span>
+      </a>
+
+      <nav class="nx-nav-links">
+        <a class="nx-nav-link" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link active" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link" href="examples.html">Giao diện mẫu</a>
+      </nav>
+
+      <div class="nx-d-flex nx-align-center nx-gap-2">
+        <button type="button" class="nx-btn nx-btn-outline-secondary nx-btn-sm" data-nx-modal="#docsSearchModal">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Tìm nhanh</span>
+          <span class="nx-kbd">Ctrl+K</span>
+        </button>
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon" data-nx-theme-toggle data-nx-tooltip="Đổi Sáng / Tối">
+          <i class="fa-solid fa-sun" data-nx-theme-icon></i>
+        </button>
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon nx-mobile-docs-btn" data-nx-offcanvas="#mobileDocsNav" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nx-z1 nx-docs-shell">
+    <aside class="nx-docs-sidebar">
+      <div class="nx-docs-group-title">Bắt đầu &amp; Tùy biến</div>
+      <a class="nx-docs-link" href="#install">Cài đặt nhanh</a>
+      <a class="nx-docs-link" href="#css-variables">Biến CSS &amp; Chế độ màu</a>
+      <a class="nx-docs-link" href="#javascript">JavaScript API</a>
+
+      <div class="nx-docs-group-title">Bố cục (Layout)</div>
+      <a class="nx-docs-link" href="#containers">Khung chứa &amp; Breakpoints</a>
+      <a class="nx-docs-link" href="#grid">Hệ thống Lưới 12 cột</a>
+      <a class="nx-docs-link" href="#css-grid">CSS Grid</a>
+
+      <div class="nx-docs-group-title">Nội dung (Content)</div>
+      <a class="nx-docs-link" href="#typography">Kiểu chữ (Typography)</a>
+      <a class="nx-docs-link" href="#prose">Văn bản Prose</a>
+      <a class="nx-docs-link" href="#code">Mã lệnh (Code &amp; Terminal)</a>
+      <a class="nx-docs-link" href="#tables">Bảng dữ liệu (Tables)</a>
+
+      <div class="nx-docs-group-title">Biểu mẫu (Forms)</div>
+      <a class="nx-docs-link" href="#inputs">Ô nhập &amp; Vùng văn bản</a>
+      <a class="nx-docs-link" href="#select-range">Danh sách chọn &amp; Thanh trượt</a>
+      <a class="nx-docs-link" href="#checks">Hộp kiểm, Radio &amp; Công tắc</a>
+      <a class="nx-docs-link" href="#floating">Nhãn nổi (Floating Labels)</a>
+      <a class="nx-docs-link" href="#input-groups">Nhóm nhập &amp; Adorn</a>
+      <a class="nx-docs-link" href="#combobox">Hộp chọn tìm kiếm (Combobox)</a>
+      <a class="nx-docs-link" href="#datepicker">Chọn ngày (Datepicker)</a>
+      <a class="nx-docs-link" href="#otp">Mã xác thực OTP</a>
+      <a class="nx-docs-link" href="#password-strength">Độ mạnh Mật khẩu</a>
+      <a class="nx-docs-link" href="#validation">Kiểm tra hợp lệ (Validation)</a>
+
+      <div class="nx-docs-group-title">Thành phần (Components)</div>
+      <a class="nx-docs-link" href="#accordion">Accordion (Xếp lớp)</a>
+      <a class="nx-docs-link" href="#alerts">Cảnh báo (Alerts)</a>
+      <a class="nx-docs-link" href="#avatars">Ảnh đại diện (Avatars)</a>
+      <a class="nx-docs-link" href="#badges">Huy hiệu &amp; Chấm trạng thái</a>
+      <a class="nx-docs-link" href="#banners">Biểu ngữ (Banners)</a>
+      <a class="nx-docs-link" href="#breadcrumb">Đường dẫn (Breadcrumb)</a>
+      <a class="nx-docs-link" href="#buttons">Nút bấm &amp; Nút đóng</a>
+      <a class="nx-docs-link" href="#button-group">Nhóm nút (Button Group)</a>
+      <a class="nx-docs-link" href="#cards">Thẻ, Chỉ số KPI &amp; Thẻ Ứng dụng</a>
+      <a class="nx-docs-link" href="#carousel">Trình chiếu (Carousel)</a>
+      <a class="nx-docs-link" href="#chips">Thẻ lọc (Filter Chips)</a>
+      <a class="nx-docs-link" href="#collapse">Thu gọn (Collapse)</a>
+      <a class="nx-docs-link" href="#dropdowns">Menu thả xuống (Dropdown)</a>
+      <a class="nx-docs-link" href="#empty">Trạng thái trống (Empty State)</a>
+      <a class="nx-docs-link" href="#list-group">Nhóm danh sách (List Group)</a>
+      <a class="nx-docs-link" href="#modal">Hộp thoại (Modal)</a>
+      <a class="nx-docs-link" href="#navbar">Thanh điều hướng (Navbar)</a>
+      <a class="nx-docs-link" href="#offcanvas">Ngăn kéo (Offcanvas)</a>
+      <a class="nx-docs-link" href="#tabs">Thẻ chuyển (Tabs &amp; Pills)</a>
+      <a class="nx-docs-link" href="#pagination">Phân trang (Pagination)</a>
+      <a class="nx-docs-link" href="#popovers">Hộp nổi (Popovers)</a>
+      <a class="nx-docs-link" href="#progress">Thanh tiến trình (Progress)</a>
+      <a class="nx-docs-link" href="#scrollspy">Theo dõi cuộn (Scrollspy)</a>
+      <a class="nx-docs-link" href="#sidebar">Thanh bên (Sidebar)</a>
+      <a class="nx-docs-link" href="#spinners">Vòng xoay &amp; Khung chờ</a>
+      <a class="nx-docs-link" href="#stepper">Tiến trình bước (Stepper)</a>
+      <a class="nx-docs-link" href="#toasts">Thông báo nổi (Toasts)</a>
+      <a class="nx-docs-link" href="#tooltips">Chú giải nổi (Tooltips)</a>
+
+      <div class="nx-docs-group-title">Trợ giúp (Helpers)</div>
+      <a class="nx-docs-link" href="#stacks">Xếp chồng &amp; Đường chia</a>
+      <a class="nx-docs-link" href="#ratios">Tỷ lệ khung hình (Ratios)</a>
+      <a class="nx-docs-link" href="#helpers">Hover Lift, Icon Link &amp; Cắt chữ</a>
+
+      <div class="nx-docs-group-title">Tiện ích (Utilities)</div>
+      <a class="nx-docs-link" href="#utilities">Hiển thị, Độ mờ &amp; Bóng đổ</a>
+    </aside>
+
+    <main class="nx-flex-1">
+      <div class="nx-mb-4">
+        <span class="nx-eyebrow">TÀI LIỆU NORYXUI</span>
+        <h1 class="nx-display-3">Tất cả Thành phần &amp; Tiện ích</h1>
+        <p class="nx-lead nx-m-0">
+          Bộ thư viện giao diện đầy đủ với thiết kế không viền mềm mại, tương phản cao Chế độ Sáng/Tối và kho biểu tượng <code>NoryxIcons</code> tích hợp sẵn.
+        </p>
+      </div>
+
+      <!-- 0. Bắt đầu & Tùy biến -->
+      <section class="nx-doc-section" id="install">
+        <h2 class="nx-h2">Cài đặt nhanh (Install)</h2>
+        <p class="nx-text-muted">Nhúng trực tiếp 3 tệp của NoryxUI vào thẻ <code>&lt;head&gt;</code> và cuối <code>&lt;body&gt;</code>.</p>
+        <div class="nx-example-box">
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeInstall"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeInstall">&lt;link rel="stylesheet" href="assets/fonts/fonts.css" /&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x2niosvn/NoryxUI@main/dist/noryxui.min.css" /&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/x2niosvn/NoryxUI@main/dist/noryxui.min.js" defer&gt;&lt;/script&gt;</pre>
+        </div>
+      </section>
+
+      <section class="nx-doc-section" id="css-variables">
+        <h2 class="nx-h2">Biến CSS &amp; Chế độ màu</h2>
+        <p class="nx-text-muted">Tùy biến giao diện toàn cục qua các biến <code>--nx-*</code> và thuộc tính <code>data-theme="dark|light"</code>.</p>
+        <div class="nx-example-box">
+          <div class="nx-example-code-bar"><span>CSS</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeVars"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeVars">:root, [data-theme="dark"] {
+  --nx-bg: #0c0c0f;
+  --nx-panel-bg: #121217;
+  --nx-card-bg: #1b1b24;
+  --nx-blue: #3b82f6;
+}</pre>
+        </div>
+      </section>
+
+      <section class="nx-doc-section" id="javascript">
+        <h2 class="nx-h2">JavaScript API</h2>
+        <p class="nx-text-muted">Điều khiển Hộp thoại, Ngăn kéo, Thông báo nổi và Chế độ Sáng/Tối qua đối tượng toàn cục <code>NoryxUI</code>.</p>
+        <div class="nx-example-box">
+          <div class="nx-example-code-bar"><span>JS</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeJsApi"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeJsApi">NoryxUI.theme.toggle(event);
+NoryxUI.modal.open("#myModal");
+NoryxUI.offcanvas.open("#myDrawer");
+NoryxUI.toast({ title: "Thông báo", message: "Thành công!", type: "success" });</pre>
+        </div>
+      </section>
+
+      <!-- 1. Containers -->
+      <section class="nx-doc-section" id="containers">
+        <h2 class="nx-h2">Khung chứa (Containers)</h2>
+        <p class="nx-text-muted">Các lớp <code>.nx-container</code>, <code>.nx-container-sm</code> (640px), <code>.nx-container-md</code> (880px), <code>.nx-container-lg</code> (1180px), <code>.nx-container-xl</code> (1320px) và <code>.nx-container-fluid</code> (100%).</p>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-grid-demo-cell nx-mb-2">.nx-container-sm (tối đa 640px)</div>
+            <div class="nx-grid-demo-cell">.nx-container (tối đa 1180px)</div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeContainers"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeContainers">&lt;div class="nx-container"&gt;Nội dung căn giữa&lt;/div&gt;
+&lt;div class="nx-container-fluid"&gt;Tràn toàn chiều ngang&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 2. Grid -->
+      <section class="nx-doc-section" id="grid">
+        <h2 class="nx-h2">Hệ thống Lưới (Grid 12 cột)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-row nx-g-2 nx-mb-2">
+              <div class="nx-col-12 nx-col-md-4"><div class="nx-grid-demo-cell">.nx-col-md-4</div></div>
+              <div class="nx-col-12 nx-col-md-4"><div class="nx-grid-demo-cell">.nx-col-md-4</div></div>
+              <div class="nx-col-12 nx-col-md-4"><div class="nx-grid-demo-cell">.nx-col-md-4</div></div>
+            </div>
+            <div class="nx-row nx-g-2">
+              <div class="nx-col-6 nx-col-lg-8"><div class="nx-grid-demo-cell">.nx-col-lg-8</div></div>
+              <div class="nx-col-6 nx-col-lg-4"><div class="nx-grid-demo-cell">.nx-col-lg-4</div></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeGrid"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeGrid">&lt;div class="nx-row nx-g-2 nx-mb-2"&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;div class="nx-grid-demo-cell"&gt;.nx-col-md-4&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;div class="nx-grid-demo-cell"&gt;.nx-col-md-4&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;div class="nx-grid-demo-cell"&gt;.nx-col-md-4&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="nx-row nx-g-2"&gt;
+  &lt;div class="nx-col-6 nx-col-lg-8"&gt;&lt;div class="nx-grid-demo-cell"&gt;.nx-col-lg-8&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="nx-col-6 nx-col-lg-4"&gt;&lt;div class="nx-grid-demo-cell"&gt;.nx-col-lg-4&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 2b. CSS Grid -->
+      <section class="nx-doc-section" id="css-grid">
+        <h2 class="nx-h2">CSS Grid</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-grid-cols-3 nx-gap-2">
+              <div class="nx-grid-demo-cell">Cột 1</div>
+              <div class="nx-grid-demo-cell">Cột 2</div>
+              <div class="nx-grid-demo-cell">Cột 3</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeCssGrid"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeCssGrid">&lt;div class="nx-grid-cols-3 nx-gap-2"&gt;
+  &lt;div&gt;Cột 1&lt;/div&gt;
+  &lt;div&gt;Cột 2&lt;/div&gt;
+  &lt;div&gt;Cột 3&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 3. Stacks -->
+      <section class="nx-doc-section" id="stacks">
+        <h2 class="nx-h2">Xếp chồng &amp; Đường chia (Stacks &amp; Vertical Rule)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-hstack nx-gap-2 nx-mb-3">
+              <span class="nx-badge nx-badge-primary">Mục 1</span>
+              <span class="nx-vr"></span>
+              <span class="nx-badge nx-badge-success">Mục 2</span>
+              <span class="nx-vr"></span>
+              <span class="nx-badge nx-badge-purple">Mục 3</span>
+            </div>
+            <div class="nx-vstack nx-gap-2" style="max-width:260px;">
+              <div class="nx-grid-demo-cell">Hàng dọc 1</div>
+              <div class="nx-grid-demo-cell">Hàng dọc 2</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeStacks"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeStacks">&lt;div class="nx-hstack nx-gap-2"&gt;
+  &lt;span&gt;Trái&lt;/span&gt;&lt;span class="nx-vr"&gt;&lt;/span&gt;&lt;span&gt;Phải&lt;/span&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 4. Ratios -->
+      <section class="nx-doc-section" id="ratios">
+        <h2 class="nx-h2">Tỷ lệ khung hình (Ratios)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-ratio nx-ratio-16x9" style="max-width:340px;background:var(--nx-surface-2);">
+              <div class="nx-d-flex nx-align-center nx-justify-center nx-text-muted nx-mono nx-fs-sm">Khung tỷ lệ 16 : 9</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeRatios"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeRatios">&lt;div class="nx-ratio nx-ratio-16x9" style="max-width:340px;background:var(--nx-surface-2);"&gt;
+  &lt;div class="nx-d-flex nx-align-center nx-justify-center nx-text-muted nx-mono nx-fs-sm"&gt;Khung tỷ lệ 16 : 9&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 5. Typography -->
+      <section class="nx-doc-section" id="typography">
+        <h2 class="nx-h2">Kiểu chữ (Typography)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <span class="nx-eyebrow">NHÃN TIÊU ĐỀ NHỎ</span>
+            <h1 class="nx-h1">Tiêu đề H1 — Inter</h1>
+            <h3 class="nx-h3">Tiêu đề H3 — Phân mục</h3>
+            <p class="nx-lead nx-m-0">Đoạn văn bản nổi bật (<code>.nx-lead</code>) với độ tương phản rõ nét.</p>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeTypo"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeTypo">&lt;span class="nx-eyebrow"&gt;NHÃN TIÊU ĐỀ NHỎ&lt;/span&gt;
+&lt;h1 class="nx-h1"&gt;Tiêu đề H1 — Inter&lt;/h1&gt;
+&lt;h3 class="nx-h3"&gt;Tiêu đề H3 — Phân mục&lt;/h3&gt;
+&lt;p class="nx-lead nx-m-0"&gt;Đoạn văn bản nổi bật (&lt;code&gt;.nx-lead&lt;/code&gt;) với độ tương phản rõ nét.&lt;/p&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 5b. Prose -->
+      <section class="nx-doc-section" id="prose">
+        <h2 class="nx-h2">Văn bản Prose</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <article class="nx-prose">
+              <h3 class="nx-h3">Bài viết định dạng chuẩn</h3>
+              <p>Lớp <code>.nx-prose</code> tối ưu độ rộng dòng (68ch) và khoảng cách đoạn văn giúp đọc nội dung dài thoải mái hơn.</p>
+            </article>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeProse"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeProse">&lt;article class="nx-prose"&gt;
+  &lt;h3 class="nx-h3"&gt;Tiêu đề&lt;/h3&gt;
+  &lt;p&gt;Nội dung bài viết...&lt;/p&gt;
+&lt;/article&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 6. Code -->
+      <section class="nx-doc-section" id="code">
+        <h2 class="nx-h2">Mã lệnh (Code &amp; Terminal)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <p class="nx-text-muted nx-mb-2">Mã nội tuyến <code>NoryxUI.toast()</code> và phím tắt <span class="nx-kbd">Ctrl</span> + <span class="nx-kbd">K</span>.</p>
+            <pre class="nx-pre">npm run build &amp;&amp; noryxui --serve</pre>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeSnippet"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeSnippet">&lt;p class="nx-text-muted nx-mb-2"&gt;Mã nội tuyến &lt;code&gt;NoryxUI.toast()&lt;/code&gt; và phím tắt &lt;span class="nx-kbd"&gt;Ctrl&lt;/span&gt; + &lt;span class="nx-kbd"&gt;K&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class="nx-pre"&gt;npm run build &amp;amp;&amp;amp; noryxui --serve&lt;/pre&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 7. Tables -->
+      <section class="nx-doc-section" id="tables">
+        <h2 class="nx-h2">Bảng dữ liệu (Tables)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-table-wrap">
+              <table class="nx-table nx-table-hover">
+                <thead><tr><th>Dịch vụ</th><th>Giao thức</th><th>Độ trễ</th><th>Trạng thái</th></tr></thead>
+                <tbody>
+                  <tr><td class="nx-fw-bold">Cổng API Chính</td><td><span class="nx-mono">HTTPS/2</span></td><td><span class="nx-mono">14ms</span></td><td><span class="nx-badge nx-badge-success">Ổn định</span></td></tr>
+                  <tr><td class="nx-fw-bold">Máy chủ Xác thực</td><td><span class="nx-mono">gRPC</span></td><td><span class="nx-mono">42ms</span></td><td><span class="nx-badge nx-badge-primary">Đang chạy</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeTable"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeTable">&lt;div class="nx-table-wrap"&gt;
+  &lt;table class="nx-table nx-table-hover"&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Dịch vụ&lt;/th&gt;&lt;th&gt;Giao thức&lt;/th&gt;&lt;th&gt;Độ trễ&lt;/th&gt;&lt;th&gt;Trạng thái&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td class="nx-fw-bold"&gt;Cổng API Chính&lt;/td&gt;&lt;td&gt;&lt;span class="nx-mono"&gt;HTTPS/2&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class="nx-mono"&gt;14ms&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class="nx-badge nx-badge-success"&gt;Ổn định&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class="nx-fw-bold"&gt;Máy chủ Xác thực&lt;/td&gt;&lt;td&gt;&lt;span class="nx-mono"&gt;gRPC&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class="nx-mono"&gt;42ms&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class="nx-badge nx-badge-primary"&gt;Đang chạy&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 8. Inputs -->
+      <section class="nx-doc-section" id="inputs">
+        <h2 class="nx-h2">Ô nhập &amp; Vùng văn bản</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-row nx-g-3">
+              <div class="nx-col-12 nx-col-md-4"><label class="nx-label">Cỡ nhỏ (sm)</label><input type="text" class="nx-input nx-input-sm" placeholder="Nhập dữ liệu..." /></div>
+              <div class="nx-col-12 nx-col-md-4"><label class="nx-label">Mặc định</label><input type="text" class="nx-input" placeholder="Nhập dữ liệu..." /></div>
+              <div class="nx-col-12 nx-col-md-4"><label class="nx-label">Cỡ lớn (lg)</label><input type="text" class="nx-input nx-input-lg" placeholder="Nhập dữ liệu..." /></div>
+              <div class="nx-col-12"><label class="nx-label">Ghi chú (Textarea)</label><textarea class="nx-textarea" rows="2" placeholder="Nhập mô tả chi tiết..."></textarea></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeInputs"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeInputs">&lt;div class="nx-row nx-g-3"&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;label class="nx-label"&gt;Cỡ nhỏ (sm)&lt;/label&gt;&lt;input type="text" class="nx-input nx-input-sm" placeholder="Nhập dữ liệu..." /&gt;&lt;/div&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;label class="nx-label"&gt;Mặc định&lt;/label&gt;&lt;input type="text" class="nx-input" placeholder="Nhập dữ liệu..." /&gt;&lt;/div&gt;
+  &lt;div class="nx-col-12 nx-col-md-4"&gt;&lt;label class="nx-label"&gt;Cỡ lớn (lg)&lt;/label&gt;&lt;input type="text" class="nx-input nx-input-lg" placeholder="Nhập dữ liệu..." /&gt;&lt;/div&gt;
+  &lt;div class="nx-col-12"&gt;&lt;label class="nx-label"&gt;Ghi chú (Textarea)&lt;/label&gt;&lt;textarea class="nx-textarea" rows="2" placeholder="Nhập mô tả chi tiết..."&gt;&lt;/textarea&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 9. Select & Range -->
+      <section class="nx-doc-section" id="select-range">
+        <h2 class="nx-h2">Danh sách chọn &amp; Thanh trượt</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-row nx-g-3">
+              <div class="nx-col-12 nx-col-md-6">
+                <label class="nx-label">Môi trường triển khai</label>
+                <div class="nx-select-custom">
+                  <button type="button" class="nx-select-trigger">
+                    <span data-nx-select-label>Sản phẩm (Production)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="nx-select-menu">
+                    <button type="button" class="nx-dropdown-item">Sản phẩm (Production)</button>
+                    <button type="button" class="nx-dropdown-item">Thử nghiệm (Staging)</button>
+                    <button type="button" class="nx-dropdown-item">Phát triển (Development)</button>
+                  </div>
+                </div>
+              </div>
+              <div class="nx-col-12 nx-col-md-6">
+                <label class="nx-label">Số luồng xử lý tối đa</label>
+                <input type="range" class="nx-range" min="1" max="16" value="8" />
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeSelRange"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeSelRange">&lt;select class="nx-select"&gt;&lt;option&gt;Lựa chọn 1&lt;/option&gt;&lt;/select&gt;
+&lt;input type="range" class="nx-range" min="1" max="16" value="8" /&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 10. Checks -->
+      <section class="nx-doc-section" id="checks">
+        <h2 class="nx-h2">Hộp kiểm, Radio &amp; Công tắc</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-wrap nx-gap-4">
+            <label class="nx-check"><input type="checkbox" checked /> <span>Tự động đồng bộ</span></label>
+            <label class="nx-check"><input type="radio" name="r1" checked /> <span>Khu vực VN</span></label>
+            <label class="nx-check"><input type="radio" name="r1" /> <span>Khu vực US</span></label>
+            <label class="nx-switch"><input type="checkbox" checked /> <span>Chế độ Luồng</span></label>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeChecks"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeChecks">&lt;label class="nx-check"&gt;&lt;input type="checkbox" checked /&gt; &lt;span&gt;Đồng ý&lt;/span&gt;&lt;/label&gt;
+&lt;label class="nx-switch"&gt;&lt;input type="checkbox" checked /&gt; &lt;span&gt;Bật&lt;/span&gt;&lt;/label&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 11. Floating Labels -->
+      <section class="nx-doc-section" id="floating">
+        <h2 class="nx-h2">Nhãn nổi (Floating Labels)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-floating" style="max-width:420px;">
+              <input type="email" class="nx-input" id="floatEmail" placeholder=" " />
+              <label for="floatEmail">Địa chỉ Email</label>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeFloat"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeFloat">&lt;div class="nx-floating"&gt;
+  &lt;input type="email" class="nx-input" id="floatEmail" placeholder=" " /&gt;
+  &lt;label for="floatEmail"&gt;Địa chỉ Email&lt;/label&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 12. Input Groups & Search Shell -->
+      <section class="nx-doc-section" id="input-groups">
+        <h2 class="nx-h2">Nhóm nhập &amp; Thanh tìm kiếm</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-search-shell nx-mb-3">
+              <div class="nx-search-wrap">
+                <i class="fa-solid fa-magnifying-glass nx-search-ico"></i>
+                <input type="search" class="nx-input" placeholder="Tìm kiếm thành phần, API hoặc tài liệu..." />
+                <button type="button" class="nx-btn nx-btn-primary nx-btn-sm nx-search-btn">Tìm kiếm</button>
+              </div>
+            </div>
+            <div class="nx-input-group">
+              <span class="nx-input-addon">https://</span>
+              <input type="text" class="nx-input" placeholder="noryx.dev" />
+              <button type="button" class="nx-btn nx-btn-primary">Lưu</button>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeSearch"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeSearch">&lt;div class="nx-input-group"&gt;
+  &lt;span class="nx-input-addon"&gt;https://&lt;/span&gt;
+  &lt;input type="text" class="nx-input" placeholder="noryx.dev" /&gt;
+  &lt;button class="nx-btn nx-btn-primary"&gt;Lưu&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 12b. Combobox -->
+      <section class="nx-doc-section" id="combobox">
+        <h2 class="nx-h2">Hộp chọn tìm kiếm (Combobox)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-combobox" style="max-width:340px;">
+              <div class="nx-adorn has-start">
+                <i class="fa-solid fa-magnifying-glass nx-adorn-start"></i>
+                <input type="text" class="nx-input" placeholder="Tìm khu vực máy chủ..." />
+              </div>
+              <div class="nx-combobox-list">
+                <button type="button" class="nx-dropdown-item">ap-southeast-1 (Singapore)</button>
+                <button type="button" class="nx-dropdown-item">ap-northeast-1 (Tokyo)</button>
+                <button type="button" class="nx-dropdown-item">us-east-1 (Virginia)</button>
+                <button type="button" class="nx-dropdown-item">eu-central-1 (Frankfurt)</button>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeCombo"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeCombo">&lt;div class="nx-combobox"&gt;
+  &lt;input type="text" class="nx-input" placeholder="Tìm kiếm..." /&gt;
+  &lt;div class="nx-combobox-list"&gt;
+    &lt;button type="button" class="nx-dropdown-item"&gt;Lựa chọn 1&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 12c. Datepicker -->
+      <section class="nx-doc-section" id="datepicker">
+        <h2 class="nx-h2">Chọn ngày (Datepicker)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div style="max-width:280px;">
+              <label class="nx-label">Ngày bắt đầu</label>
+              <div class="nx-adorn has-end">
+                <input type="text" class="nx-input" data-nx-datepicker value="27/11/2026" placeholder="Chọn ngày..." />
+                <i class="fa-regular fa-calendar nx-adorn-end nx-pe-none"></i>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeDate"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeDate">&lt;div class="nx-adorn has-end"&gt;
+  &lt;input type="text" class="nx-input" data-nx-datepicker value="27/11/2026" /&gt;
+  &lt;i class="fa-regular fa-calendar nx-adorn-end"&gt;&lt;/i&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 12d. OTP Input -->
+      <section class="nx-doc-section" id="otp">
+        <h2 class="nx-h2">Mã xác thực OTP</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-otp">
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" value="4" />
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" value="8" />
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" placeholder="•" />
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" placeholder="•" />
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" placeholder="•" />
+              <input type="text" inputmode="numeric" maxlength="1" class="nx-otp-digit" placeholder="•" />
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeOtp"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeOtp">&lt;div class="nx-otp"&gt;
+  &lt;input type="text" maxlength="1" class="nx-otp-digit" /&gt;
+  &lt;input type="text" maxlength="1" class="nx-otp-digit" /&gt;
+  &lt;input type="text" maxlength="1" class="nx-otp-digit" /&gt;
+  &lt;input type="text" maxlength="1" class="nx-otp-digit" /&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 12e. Password Strength -->
+      <section class="nx-doc-section" id="password-strength">
+        <h2 class="nx-h2">Độ mạnh Mật khẩu</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div style="max-width:360px;">
+              <label class="nx-label">Nhập mật khẩu mới</label>
+              <input type="password" class="nx-input" data-nx-pwd-meter="#demoPwdMeter" placeholder="Thử gõ mật khẩu..." />
+              <div id="demoPwdMeter">
+                <div class="nx-pwd-meter">
+                  <div class="nx-pwd-bar"></div>
+                  <div class="nx-pwd-bar"></div>
+                  <div class="nx-pwd-bar"></div>
+                  <div class="nx-pwd-bar"></div>
+                </div>
+                <div class="nx-form-text" data-nx-pwd-label>Nhập mật khẩu để kiểm tra</div>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codePwd"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codePwd">&lt;input type="password" class="nx-input" data-nx-pwd-meter="#pwdMeter" /&gt;
+&lt;div id="pwdMeter"&gt;
+  &lt;div class="nx-pwd-meter"&gt;
+    &lt;div class="nx-pwd-bar"&gt;&lt;/div&gt;
+    &lt;div class="nx-pwd-bar"&gt;&lt;/div&gt;
+    &lt;div class="nx-pwd-bar"&gt;&lt;/div&gt;
+    &lt;div class="nx-pwd-bar"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="nx-form-text" data-nx-pwd-label&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 13. Validation -->
+      <section class="nx-doc-section" id="validation">
+        <h2 class="nx-h2">Kiểm tra hợp lệ (Validation)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-row nx-g-3">
+              <div class="nx-col-12 nx-col-md-6">
+                <label class="nx-label">Đường dẫn API</label>
+                <input type="text" class="nx-input is-valid" value="https://api.noryx.dev/v1" />
+                <div class="nx-feedback valid">Kết nối hợp lệ</div>
+              </div>
+              <div class="nx-col-12 nx-col-md-6">
+                <label class="nx-label">Mã xác thực</label>
+                <input type="password" class="nx-input is-invalid" value="invalid-token" />
+                <div class="nx-feedback invalid">Mã đã hết hạn hoặc không hợp lệ.</div>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeVal"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeVal">&lt;input type="text" class="nx-input is-valid" /&gt;
+&lt;div class="nx-feedback valid"&gt;Kết nối hợp lệ&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 14. Accordion -->
+      <section class="nx-doc-section" id="accordion">
+        <h2 class="nx-h2">Accordion (Xếp lớp)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-accordion">
+              <div class="nx-accordion-item open">
+                <button type="button" class="nx-accordion-trigger"><span>NoryxUI có cần cài thư viện bên ngoài không?</span><i class="fa-solid fa-chevron-down nx-accordion-chevron"></i></button>
+                <div class="nx-accordion-body">Không. NoryxUI hoàn toàn độc lập với CSS, JS thuần, font nhúng sẵn và bộ NoryxIcons tích hợp.</div>
+              </div>
+              <div class="nx-accordion-item">
+                <button type="button" class="nx-accordion-trigger"><span>Có hỗ trợ Chế độ Sáng / Tối tự động không?</span><i class="fa-solid fa-chevron-down nx-accordion-chevron"></i></button>
+                <div class="nx-accordion-body">Có! Chỉ cần thuộc tính <code>data-theme="dark|light"</code> hoặc gọi <code>NoryxUI.theme.toggle()</code>.</div>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeAcc"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeAcc">&lt;div class="nx-accordion"&gt;
+  &lt;div class="nx-accordion-item open"&gt;
+    &lt;button type="button" class="nx-accordion-trigger"&gt;&lt;span&gt;NoryxUI có cần cài thư viện bên ngoài không?&lt;/span&gt;&lt;i class="fa-solid fa-chevron-down nx-accordion-chevron"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;div class="nx-accordion-body"&gt;Không. NoryxUI hoàn toàn độc lập với CSS, JS thuần, font nhúng sẵn và bộ NoryxIcons tích hợp.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="nx-accordion-item"&gt;
+    &lt;button type="button" class="nx-accordion-trigger"&gt;&lt;span&gt;Có hỗ trợ Chế độ Sáng / Tối tự động không?&lt;/span&gt;&lt;i class="fa-solid fa-chevron-down nx-accordion-chevron"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;div class="nx-accordion-body"&gt;Có! Chỉ cần thuộc tính &lt;code&gt;data-theme="dark|light"&lt;/code&gt; hoặc gọi &lt;code&gt;NoryxUI.theme.toggle()&lt;/code&gt;.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 15. Alerts -->
+      <section class="nx-doc-section" id="alerts">
+        <h2 class="nx-h2">Cảnh báo (Alerts)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-column nx-gap-2">
+            <div class="nx-alert nx-alert-primary"><i class="fa-solid fa-circle-info nx-text-primary"></i><div class="nx-flex-1"><strong>Thông tin:</strong> Hệ thống đang chạy NoryxUI v1.0.0.</div><button type="button" class="nx-close" data-nx-dismiss="alert">&times;</button></div>
+            <div class="nx-alert nx-alert-success"><i class="fa-solid fa-circle-check nx-text-success"></i><div class="nx-flex-1"><strong>Thành công:</strong> Đã đồng bộ cấu hình máy chủ.</div></div>
+            <div class="nx-alert nx-alert-warning"><i class="fa-solid fa-triangle-exclamation nx-text-warning"></i><div class="nx-flex-1"><strong>Cảnh báo:</strong> Dung lượng bộ nhớ đệm còn dưới 15%.</div></div>
+            <div class="nx-alert nx-alert-danger"><i class="fa-solid fa-circle-xmark nx-text-danger"></i><div class="nx-flex-1"><strong>Lỗi:</strong> Không thể kết nối tới máy chủ xử lý.</div></div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeAlerts"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeAlerts">&lt;div class="nx-alert nx-alert-primary"&gt;&lt;i class="fa-solid fa-circle-info nx-text-primary"&gt;&lt;/i&gt;&lt;div class="nx-flex-1"&gt;&lt;strong&gt;Thông tin:&lt;/strong&gt; Hệ thống đang chạy NoryxUI v1.0.0.&lt;/div&gt;&lt;button type="button" class="nx-close" data-nx-dismiss="alert"&gt;&amp;times;&lt;/button&gt;&lt;/div&gt;
+&lt;div class="nx-alert nx-alert-success"&gt;&lt;i class="fa-solid fa-circle-check nx-text-success"&gt;&lt;/i&gt;&lt;div class="nx-flex-1"&gt;&lt;strong&gt;Thành công:&lt;/strong&gt; Đã đồng bộ cấu hình máy chủ.&lt;/div&gt;&lt;/div&gt;
+&lt;div class="nx-alert nx-alert-warning"&gt;&lt;i class="fa-solid fa-triangle-exclamation nx-text-warning"&gt;&lt;/i&gt;&lt;div class="nx-flex-1"&gt;&lt;strong&gt;Cảnh báo:&lt;/strong&gt; Dung lượng bộ nhớ đệm còn dưới 15%.&lt;/div&gt;&lt;/div&gt;
+&lt;div class="nx-alert nx-alert-danger"&gt;&lt;i class="fa-solid fa-circle-xmark nx-text-danger"&gt;&lt;/i&gt;&lt;div class="nx-flex-1"&gt;&lt;strong&gt;Lỗi:&lt;/strong&gt; Không thể kết nối tới máy chủ xử lý.&lt;/div&gt;&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 16. Avatars -->
+      <section class="nx-doc-section" id="avatars">
+        <h2 class="nx-h2">Ảnh đại diện (Avatars)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-align-center nx-gap-3">
+            <div class="nx-avatar nx-avatar-sm">NX</div>
+            <div class="nx-avatar">X2</div>
+            <div class="nx-avatar nx-avatar-lg nx-avatar-circle">UI</div>
+            <div class="nx-avatar-group">
+              <div class="nx-avatar nx-avatar-circle">A</div>
+              <div class="nx-avatar nx-avatar-circle" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">B</div>
+              <div class="nx-avatar nx-avatar-circle" style="background:linear-gradient(135deg,#f59e0b,#f43f5e);">+4</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeAvatars"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeAvatars">&lt;div class="nx-avatar-group"&gt;
+  &lt;div class="nx-avatar nx-avatar-circle"&gt;A&lt;/div&gt;
+  &lt;div class="nx-avatar nx-avatar-circle"&gt;B&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 17. Badges -->
+      <section class="nx-doc-section" id="badges">
+        <h2 class="nx-h2">Huy hiệu &amp; Chấm trạng thái</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-wrap nx-align-center nx-gap-2">
+            <span class="nx-badge">Mặc định</span>
+            <span class="nx-badge nx-badge-primary">Chính</span>
+            <span class="nx-badge nx-badge-success">Thành công</span>
+            <span class="nx-badge nx-badge-warning">Cảnh báo</span>
+            <span class="nx-badge nx-badge-danger">Lỗi</span>
+            <span class="nx-badge nx-badge-purple">Nổi bật</span>
+            <span class="nx-badge nx-badge-solid-primary">Đậm</span>
+            <span class="nx-status-dot"><span class="dot"></span> Trực tuyến</span>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeBadges"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeBadges">&lt;span class="nx-badge nx-badge-success"&gt;Thành công&lt;/span&gt;
+&lt;span class="nx-status-dot"&gt;&lt;span class="dot"&gt;&lt;/span&gt; Trực tuyến&lt;/span&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 18. Banners -->
+      <section class="nx-doc-section" id="banners">
+        <h2 class="nx-h2">Biểu ngữ (Banners)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-column nx-gap-2">
+            <div class="nx-banner">
+              <div class="nx-banner-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="nx-flex-1"><span class="nx-eyebrow">THÔNG BÁO HỆ THỐNG</span><div class="nx-banner-title">Biểu ngữ NoryxUI</div><p class="nx-banner-sub">Biểu ngữ không viền với hộp biểu tượng và nền kính mờ.</p></div>
+            </div>
+            <div class="nx-banner warn">
+              <div class="nx-banner-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div class="nx-flex-1"><span class="nx-eyebrow">BẢO TRÌ ĐỊNH KỲ</span><div class="nx-banner-title">Nâng cấp máy chủ lúc 02:00</div><p class="nx-banner-sub">Hệ thống có thể gián đoạn trong 5 phút.</p></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeBanners"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeBanners">&lt;div class="nx-banner"&gt;
+  &lt;div class="nx-banner-icon"&gt;&lt;i class="fa-solid fa-bolt"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="nx-flex-1"&gt;&lt;span class="nx-eyebrow"&gt;THÔNG BÁO HỆ THỐNG&lt;/span&gt;&lt;div class="nx-banner-title"&gt;Biểu ngữ NoryxUI&lt;/div&gt;&lt;p class="nx-banner-sub"&gt;Biểu ngữ không viền với hộp biểu tượng và nền kính mờ.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="nx-banner warn"&gt;
+  &lt;div class="nx-banner-icon"&gt;&lt;i class="fa-solid fa-triangle-exclamation"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="nx-flex-1"&gt;&lt;span class="nx-eyebrow"&gt;BẢO TRÌ ĐỊNH KỲ&lt;/span&gt;&lt;div class="nx-banner-title"&gt;Nâng cấp máy chủ lúc 02:00&lt;/div&gt;&lt;p class="nx-banner-sub"&gt;Hệ thống có thể gián đoạn trong 5 phút.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 19. Breadcrumb -->
+      <section class="nx-doc-section" id="breadcrumb">
+        <h2 class="nx-h2">Đường dẫn (Breadcrumb)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <ol class="nx-breadcrumb">
+              <li class="nx-breadcrumb-item"><a href="#">Trang chủ</a></li>
+              <li class="nx-breadcrumb-item"><a href="#">Tài liệu</a></li>
+              <li class="nx-breadcrumb-item active">Đường dẫn</li>
+            </ol>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeBread"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeBread">&lt;ol class="nx-breadcrumb"&gt;
+  &lt;li class="nx-breadcrumb-item"&gt;&lt;a href="#"&gt;Trang chủ&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-breadcrumb-item"&gt;&lt;a href="#"&gt;Tài liệu&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-breadcrumb-item active"&gt;Đường dẫn&lt;/li&gt;
+&lt;/ol&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 20. Buttons & Close -->
+      <section class="nx-doc-section" id="buttons">
+        <h2 class="nx-h2">Nút bấm &amp; Nút đóng</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mb-3">
+              <button type="button" class="nx-btn nx-btn-primary">Chính</button>
+              <button type="button" class="nx-btn nx-btn-success">Thành công</button>
+              <button type="button" class="nx-btn nx-btn-warning">Cảnh báo</button>
+              <button type="button" class="nx-btn nx-btn-danger">Nguy hiểm</button>
+              <button type="button" class="nx-btn nx-btn-soft-primary">Nhẹ</button>
+              <button type="button" class="nx-btn nx-btn-outline-secondary">Phụ</button>
+              <button type="button" class="nx-btn nx-btn-ghost">Trong suốt</button>
+            </div>
+            <div class="nx-d-flex nx-flex-wrap nx-align-center nx-gap-2">
+              <button type="button" class="nx-btn nx-btn-primary nx-btn-sm">Nhỏ</button>
+              <button type="button" class="nx-btn nx-btn-primary">Mặc định</button>
+              <button type="button" class="nx-btn nx-btn-primary nx-btn-lg">Lớn</button>
+              <button type="button" class="nx-btn nx-btn-primary nx-btn-pill">Nút Bo Tròn</button>
+              <button type="button" class="nx-close" aria-label="Đóng">&times;</button>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeBtns"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeBtns">&lt;button class="nx-btn nx-btn-primary"&gt;Chính&lt;/button&gt;
+&lt;button class="nx-close" aria-label="Đóng"&gt;&amp;times;&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 21. Button Group -->
+      <section class="nx-doc-section" id="button-group">
+        <h2 class="nx-h2">Nhóm nút (Button Group)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-btn-group">
+              <button type="button" class="nx-btn nx-btn-sm">Trái</button>
+              <button type="button" class="nx-btn nx-btn-sm">Giữa</button>
+              <button type="button" class="nx-btn nx-btn-sm">Phải</button>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeBtnGrp"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeBtnGrp">&lt;div class="nx-btn-group"&gt;
+  &lt;button type="button" class="nx-btn nx-btn-sm"&gt;Trái&lt;/button&gt;
+  &lt;button type="button" class="nx-btn nx-btn-sm"&gt;Giữa&lt;/button&gt;
+  &lt;button type="button" class="nx-btn nx-btn-sm"&gt;Phải&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 22. Cards -->
+      <section class="nx-doc-section" id="cards">
+        <h2 class="nx-h2">Thẻ, Chỉ số KPI &amp; Thẻ Ứng dụng</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-row nx-g-3">
+              <div class="nx-col-12 nx-col-md-6">
+                <div class="nx-card">
+                  <div class="nx-card-header"><span>Thẻ Kính Mờ</span><span class="nx-badge nx-badge-primary">Mới</span></div>
+                  <div class="nx-card-body"><p class="nx-text-muted nx-fs-sm nx-m-0">Thẻ không viền với độ sâu bóng đổ mềm mại và tách tầng rõ rệt.</p></div>
+                  <div class="nx-card-footer"><span class="nx-fs-xs nx-text-subtle">Cập nhật 2 phút trước</span><button type="button" class="nx-btn nx-btn-primary nx-btn-sm">Thao tác</button></div>
+                </div>
+              </div>
+              <div class="nx-col-12 nx-col-md-6">
+                <div class="nx-kpi-card nx-mb-2">
+                  <div class="nx-kpi-ico emerald"><i class="fa-solid fa-server"></i></div>
+                  <div><div class="nx-kpi-label">Máy chủ hoạt động</div><div class="nx-kpi-val">12 / 12</div></div>
+                </div>
+                <div class="nx-app-card">
+                  <div class="nx-avatar">NX</div>
+                  <div class="nx-flex-1"><div class="nx-fw-bold nx-text-heading nx-fs-sm">Thẻ Ứng dụng Noryx</div><div class="nx-fs-xs nx-text-muted">ui.noryx.dev</div></div>
+                  <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-pill nx-btn-sm">MỞ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeCards"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeCards">&lt;div class="nx-row nx-g-3"&gt;
+  &lt;div class="nx-col-12 nx-col-md-6"&gt;
+    &lt;div class="nx-card"&gt;
+      &lt;div class="nx-card-header"&gt;&lt;span&gt;Thẻ Kính Mờ&lt;/span&gt;&lt;span class="nx-badge nx-badge-primary"&gt;Mới&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="nx-card-body"&gt;&lt;p class="nx-text-muted nx-fs-sm nx-m-0"&gt;Thẻ không viền với độ sâu bóng đổ mềm mại và tách tầng rõ rệt.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="nx-card-footer"&gt;&lt;span class="nx-fs-xs nx-text-subtle"&gt;Cập nhật 2 phút trước&lt;/span&gt;&lt;button type="button" class="nx-btn nx-btn-primary nx-btn-sm"&gt;Thao tác&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="nx-col-12 nx-col-md-6"&gt;
+    &lt;div class="nx-kpi-card nx-mb-2"&gt;
+      &lt;div class="nx-kpi-ico emerald"&gt;&lt;i class="fa-solid fa-server"&gt;&lt;/i&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;div class="nx-kpi-label"&gt;Máy chủ hoạt động&lt;/div&gt;&lt;div class="nx-kpi-val"&gt;12 / 12&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nx-app-card"&gt;
+      &lt;div class="nx-avatar"&gt;NX&lt;/div&gt;
+      &lt;div class="nx-flex-1"&gt;&lt;div class="nx-fw-bold nx-text-heading nx-fs-sm"&gt;Thẻ Ứng dụng Noryx&lt;/div&gt;&lt;div class="nx-fs-xs nx-text-muted"&gt;ui.noryx.dev&lt;/div&gt;&lt;/div&gt;
+      &lt;button type="button" class="nx-btn nx-btn-soft-primary nx-btn-pill nx-btn-sm"&gt;MỞ&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 23. Carousel -->
+      <section class="nx-doc-section" id="carousel">
+        <h2 class="nx-h2">Trình chiếu (Carousel)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-carousel">
+              <div class="nx-carousel-track">
+                <div class="nx-carousel-slide nx-text-center"><span class="nx-eyebrow">TRANG 01</span><h3 class="nx-h3">Lưới Tọa Độ Cyber</h3><p class="nx-text-muted nx-fs-sm nx-m-0">Hệ thống lưới 32px/128px sắc nét.</p></div>
+                <div class="nx-carousel-slide nx-text-center"><span class="nx-eyebrow">TRANG 02</span><h3 class="nx-h3">Kính Mờ Không Viền</h3><p class="nx-text-muted nx-fs-sm nx-m-0">Bề mặt kính mờ kết hợp hiệu ứng ánh sáng.</p></div>
+                <div class="nx-carousel-slide nx-text-center"><span class="nx-eyebrow">TRANG 03</span><h3 class="nx-h3">Tích hợp NoryxIcons</h3><p class="nx-text-muted nx-fs-sm nx-m-0">217 biểu tượng vector SVG độc quyền.</p></div>
+              </div>
+              <button type="button" class="nx-carousel-btn prev" data-nx-slide="prev"><i class="fa-solid fa-chevron-left"></i></button>
+              <button type="button" class="nx-carousel-btn next" data-nx-slide="next"><i class="fa-solid fa-chevron-right"></i></button>
+              <div class="nx-carousel-dots"></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeCarousel"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeCarousel">&lt;div class="nx-carousel"&gt;
+  &lt;div class="nx-carousel-track"&gt;
+    &lt;div class="nx-carousel-slide nx-text-center"&gt;&lt;span class="nx-eyebrow"&gt;TRANG 01&lt;/span&gt;&lt;h3 class="nx-h3"&gt;Lưới Tọa Độ Cyber&lt;/h3&gt;&lt;p class="nx-text-muted nx-fs-sm nx-m-0"&gt;Hệ thống lưới 32px/128px sắc nét.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="nx-carousel-slide nx-text-center"&gt;&lt;span class="nx-eyebrow"&gt;TRANG 02&lt;/span&gt;&lt;h3 class="nx-h3"&gt;Kính Mờ Không Viền&lt;/h3&gt;&lt;p class="nx-text-muted nx-fs-sm nx-m-0"&gt;Bề mặt kính mờ kết hợp hiệu ứng ánh sáng.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="nx-carousel-slide nx-text-center"&gt;&lt;span class="nx-eyebrow"&gt;TRANG 03&lt;/span&gt;&lt;h3 class="nx-h3"&gt;Tích hợp NoryxIcons&lt;/h3&gt;&lt;p class="nx-text-muted nx-fs-sm nx-m-0"&gt;217 biểu tượng vector SVG độc quyền.&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type="button" class="nx-carousel-btn prev" data-nx-slide="prev"&gt;&lt;i class="fa-solid fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;button type="button" class="nx-carousel-btn next" data-nx-slide="next"&gt;&lt;i class="fa-solid fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;div class="nx-carousel-dots"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 24. Chips -->
+      <section class="nx-doc-section" id="chips">
+        <h2 class="nx-h2">Thẻ lọc (Filter Chips)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-chip-track">
+              <button type="button" class="nx-chip active">Tất cả</button>
+              <button type="button" class="nx-chip">Bố cục</button>
+              <button type="button" class="nx-chip">Biểu mẫu</button>
+              <button type="button" class="nx-chip">Lớp phủ</button>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeChips"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeChips">&lt;div class="nx-chip-track"&gt;&lt;button class="nx-chip active"&gt;Tất cả&lt;/button&gt;&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 25. Collapse -->
+      <section class="nx-doc-section" id="collapse">
+        <h2 class="nx-h2">Thu gọn (Collapse)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm" data-nx-toggle="collapse" data-nx-target="#collapseDemo">Ẩn / Hiện nội dung</button>
+            <div class="nx-collapse nx-mt-2" id="collapseDemo">
+              <div class="nx-card nx-p-3 nx-fs-sm nx-text-muted">Nội dung được ẩn/hiện mượt mà bằng lớp <code>.nx-collapse</code>.</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeCol"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeCol">&lt;button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm" data-nx-toggle="collapse" data-nx-target="#collapseDemo"&gt;Ẩn / Hiện nội dung&lt;/button&gt;
+&lt;div class="nx-collapse nx-mt-2" id="collapseDemo"&gt;
+  &lt;div class="nx-card nx-p-3 nx-fs-sm nx-text-muted"&gt;Nội dung được ẩn/hiện mượt mà bằng lớp &lt;code&gt;.nx-collapse&lt;/code&gt;.&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 26. Dropdowns -->
+      <section class="nx-doc-section" id="dropdowns">
+        <h2 class="nx-h2">Menu thả xuống (Dropdown)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-dropdown">
+              <button type="button" class="nx-btn nx-btn-primary" data-nx-toggle="dropdown">Tùy chọn <i class="fa-solid fa-chevron-down"></i></button>
+              <div class="nx-dropdown-menu">
+                <button type="button" class="nx-dropdown-item"><i class="fa-solid fa-user"></i> Hồ sơ cá nhân</button>
+                <button type="button" class="nx-dropdown-item"><i class="fa-solid fa-key"></i> Mã API</button>
+                <div class="nx-dropdown-divider"></div>
+                <button type="button" class="nx-dropdown-item danger"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeDd"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeDd">&lt;div class="nx-dropdown"&gt;
+  &lt;button type="button" class="nx-btn nx-btn-primary" data-nx-toggle="dropdown"&gt;Tùy chọn &lt;i class="fa-solid fa-chevron-down"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;div class="nx-dropdown-menu"&gt;
+    &lt;button type="button" class="nx-dropdown-item"&gt;&lt;i class="fa-solid fa-user"&gt;&lt;/i&gt; Hồ sơ cá nhân&lt;/button&gt;
+    &lt;button type="button" class="nx-dropdown-item"&gt;&lt;i class="fa-solid fa-key"&gt;&lt;/i&gt; Mã API&lt;/button&gt;
+    &lt;div class="nx-dropdown-divider"&gt;&lt;/div&gt;
+    &lt;button type="button" class="nx-dropdown-item danger"&gt;&lt;i class="fa-solid fa-right-from-bracket"&gt;&lt;/i&gt; Đăng xuất&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 27. Empty State -->
+      <section class="nx-doc-section" id="empty">
+        <h2 class="nx-h2">Trạng thái trống (Empty State)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-empty-box">
+              <div class="nx-h4">Chưa có dữ liệu</div>
+              <p class="nx-text-muted nx-fs-sm nx-mb-2">Hãy thử tìm kiếm với từ khóa khác hoặc tạo mới.</p>
+              <button type="button" class="nx-btn nx-btn-primary nx-btn-sm">Tạo mới</button>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeEmpty"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeEmpty">&lt;div class="nx-empty-box"&gt;
+  &lt;div class="nx-h4"&gt;Chưa có dữ liệu&lt;/div&gt;
+  &lt;p class="nx-text-muted nx-fs-sm nx-mb-2"&gt;Hãy thử tìm kiếm với từ khóa khác hoặc tạo mới.&lt;/p&gt;
+  &lt;button type="button" class="nx-btn nx-btn-primary nx-btn-sm"&gt;Tạo mới&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 28. List Group -->
+      <section class="nx-doc-section" id="list-group">
+        <h2 class="nx-h2">Nhóm danh sách (List Group)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <ul class="nx-list-group" style="max-width:440px;">
+              <li class="nx-list-item nx-list-item-action active"><span>Tổng quan Cổng API</span><span class="nx-badge nx-badge-primary">Trực tuyến</span></li>
+              <li class="nx-list-item nx-list-item-action"><span>Tài khoản Xác thực</span><span class="nx-badge">12</span></li>
+              <li class="nx-list-item nx-list-item-action"><span>Nhật ký Hệ thống</span><span class="nx-badge nx-badge-warning">3</span></li>
+            </ul>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeList"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeList">&lt;ul class="nx-list-group" style="max-width:440px;"&gt;
+  &lt;li class="nx-list-item nx-list-item-action active"&gt;&lt;span&gt;Tổng quan Cổng API&lt;/span&gt;&lt;span class="nx-badge nx-badge-primary"&gt;Trực tuyến&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="nx-list-item nx-list-item-action"&gt;&lt;span&gt;Tài khoản Xác thực&lt;/span&gt;&lt;span class="nx-badge"&gt;12&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="nx-list-item nx-list-item-action"&gt;&lt;span&gt;Nhật ký Hệ thống&lt;/span&gt;&lt;span class="nx-badge nx-badge-warning"&gt;3&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 29. Modal -->
+      <section class="nx-doc-section" id="modal">
+        <h2 class="nx-h2">Hộp thoại (Modal)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <button type="button" class="nx-btn nx-btn-primary" data-nx-modal="#docsDemoModal">Mở Hộp thoại</button>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeModal"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeModal">&lt;button class="nx-btn nx-btn-primary" data-nx-modal="#myModal"&gt;Mở&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 29b. Navbar -->
+      <section class="nx-doc-section" id="navbar">
+        <h2 class="nx-h2">Thanh điều hướng (Navbar)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-navbar nx-rounded" style="position:static;">
+              <div class="nx-navbar-inner">
+                <a class="nx-brand" href="#navbar"><span class="nx-brand-logo">N</span><span>NoryxUI</span></a>
+                <div class="nx-d-flex nx-gap-2">
+                  <a class="nx-nav-link active" href="#navbar">Tổng quan</a>
+                  <a class="nx-nav-link" href="#navbar">Cài đặt</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeNav"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeNav">&lt;div class="nx-navbar nx-rounded" style="position:static;"&gt;
+  &lt;div class="nx-navbar-inner"&gt;
+    &lt;a class="nx-brand" href="#navbar"&gt;&lt;span class="nx-brand-logo"&gt;N&lt;/span&gt;&lt;span&gt;NoryxUI&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="nx-d-flex nx-gap-2"&gt;
+      &lt;a class="nx-nav-link active" href="#navbar"&gt;Tổng quan&lt;/a&gt;
+      &lt;a class="nx-nav-link" href="#navbar"&gt;Cài đặt&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 30. Offcanvas -->
+      <section class="nx-doc-section" id="offcanvas">
+        <h2 class="nx-h2">Ngăn kéo trượt (Offcanvas)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <button type="button" class="nx-btn nx-btn-outline-primary" data-nx-offcanvas="#docsDemoOffcanvas">Mở Ngăn kéo (Bên phải)</button>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeOc"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeOc">&lt;button class="nx-btn" data-nx-offcanvas="#myDrawer"&gt;Mở Ngăn kéo&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 31. Tabs & Pills -->
+      <section class="nx-doc-section" id="tabs">
+        <h2 class="nx-h2">Thẻ chuyển (Tabs &amp; Pills)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-tabs nx-mb-3">
+              <button type="button" class="nx-tab-btn active" data-nx-tab="#tabOne">Tổng quan</button>
+              <button type="button" class="nx-tab-btn" data-nx-tab="#tabTwo">Cấu hình</button>
+              <button type="button" class="nx-tab-btn" data-nx-tab="#tabThree">Nhật ký</button>
+            </div>
+            <div>
+              <div class="nx-tab-pane active" id="tabOne"><p class="nx-text-muted nx-m-0">Nội dung thẻ Tổng quan.</p></div>
+              <div class="nx-tab-pane" id="tabTwo"><p class="nx-text-muted nx-m-0">Nội dung thẻ Cấu hình hệ thống.</p></div>
+              <div class="nx-tab-pane" id="tabThree"><p class="nx-text-muted nx-m-0">Nội dung thẻ Nhật ký thời gian thực.</p></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeTabs"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeTabs">&lt;div class="nx-tabs nx-mb-3"&gt;
+  &lt;button type="button" class="nx-tab-btn active" data-nx-tab="#tabOne"&gt;Tổng quan&lt;/button&gt;
+  &lt;button type="button" class="nx-tab-btn" data-nx-tab="#tabTwo"&gt;Cấu hình&lt;/button&gt;
+  &lt;button type="button" class="nx-tab-btn" data-nx-tab="#tabThree"&gt;Nhật ký&lt;/button&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;div class="nx-tab-pane active" id="tabOne"&gt;&lt;p class="nx-text-muted nx-m-0"&gt;Nội dung thẻ Tổng quan.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="nx-tab-pane" id="tabTwo"&gt;&lt;p class="nx-text-muted nx-m-0"&gt;Nội dung thẻ Cấu hình hệ thống.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="nx-tab-pane" id="tabThree"&gt;&lt;p class="nx-text-muted nx-m-0"&gt;Nội dung thẻ Nhật ký thời gian thực.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 32. Pagination -->
+      <section class="nx-doc-section" id="pagination">
+        <h2 class="nx-h2">Phân trang (Pagination)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <ul class="nx-pagination">
+              <li class="nx-page-item disabled"><a class="nx-page-link" href="#">&laquo;</a></li>
+              <li class="nx-page-item active"><a class="nx-page-link" href="#">1</a></li>
+              <li class="nx-page-item"><a class="nx-page-link" href="#">2</a></li>
+              <li class="nx-page-item"><a class="nx-page-link" href="#">3</a></li>
+              <li class="nx-page-item"><a class="nx-page-link" href="#">&raquo;</a></li>
+            </ul>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codePag"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codePag">&lt;ul class="nx-pagination"&gt;
+  &lt;li class="nx-page-item disabled"&gt;&lt;a class="nx-page-link" href="#"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-page-item active"&gt;&lt;a class="nx-page-link" href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-page-item"&gt;&lt;a class="nx-page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-page-item"&gt;&lt;a class="nx-page-link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="nx-page-item"&gt;&lt;a class="nx-page-link" href="#"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 33. Popovers -->
+      <section class="nx-doc-section" id="popovers">
+        <h2 class="nx-h2">Hộp nổi (Popovers)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <button type="button" class="nx-btn nx-btn-soft-primary" data-nx-popover="Hộp nổi tự động căn chỉnh vị trí và không bị cắt bởi khung chứa." data-nx-popover-title="Thông tin chi tiết">Nhấn mở Hộp nổi</button>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codePop"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codePop">&lt;button type="button" class="nx-btn nx-btn-soft-primary" data-nx-popover="Hộp nổi tự động căn chỉnh vị trí và không bị cắt bởi khung chứa." data-nx-popover-title="Thông tin chi tiết"&gt;Nhấn mở Hộp nổi&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 34. Progress -->
+      <section class="nx-doc-section" id="progress">
+        <h2 class="nx-h2">Thanh tiến trình (Progress)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-column nx-gap-2">
+            <div class="nx-progress"><div class="nx-progress-bar" style="width:65%"></div></div>
+            <div class="nx-progress nx-progress-lg"><div class="nx-progress-bar success striped" style="width:82%"></div></div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeProg"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeProg">&lt;div class="nx-progress"&gt;&lt;div class="nx-progress-bar" style="width:65%"&gt;&lt;/div&gt;&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 34b. Scrollspy -->
+      <section class="nx-doc-section" id="scrollspy">
+        <h2 class="nx-h2">Theo dõi cuộn (Scrollspy)</h2>
+        <p class="nx-text-muted">Tự động đánh dấu mục đang xem trên thanh điều hướng bên trái (đang hoạt động trực tiếp trên chính trang Tài liệu này).</p>
+      </section>
+
+      <!-- 34c. Sidebar -->
+      <section class="nx-doc-section" id="sidebar">
+        <h2 class="nx-h2">Thanh bên (Sidebar)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <aside class="nx-sidebar">
+              <div class="nx-sidebar-label">Quản trị</div>
+              <a class="nx-sidebar-link active" href="#sidebar"><i class="fa-solid fa-house"></i> Tổng quan</a>
+              <a class="nx-sidebar-link" href="#sidebar"><i class="fa-solid fa-users"></i> Người dùng</a>
+              <a class="nx-sidebar-link" href="#sidebar"><i class="fa-solid fa-gear"></i> Cài đặt</a>
+            </aside>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeSide"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeSide">&lt;aside class="nx-sidebar"&gt;
+  &lt;div class="nx-sidebar-label"&gt;Quản trị&lt;/div&gt;
+  &lt;a class="nx-sidebar-link active" href="#"&gt;Tổng quan&lt;/a&gt;
+&lt;/aside&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 35. Spinners & Skeletons -->
+      <section class="nx-doc-section" id="spinners">
+        <h2 class="nx-h2">Vòng xoay &amp; Khung chờ (Spinners &amp; Skeletons)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-d-flex nx-align-center nx-gap-3 nx-mb-3">
+              <span class="nx-spinner nx-spinner-sm"></span>
+              <span class="nx-spinner"></span>
+              <span class="nx-spinner nx-spinner-lg"></span>
+              <span class="nx-spinner-grow"></span>
+            </div>
+            <div class="nx-skeleton" style="height:18px;width:65%;margin-bottom:8px;"></div>
+            <div class="nx-skeleton" style="height:14px;width:40%;"></div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeSpin"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeSpin">&lt;span class="nx-spinner"&gt;&lt;/span&gt;
+&lt;span class="nx-spinner-grow"&gt;&lt;/span&gt;
+&lt;div class="nx-skeleton" style="height:18px;width:65%"&gt;&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 35b. Stepper -->
+      <section class="nx-doc-section" id="stepper">
+        <h2 class="nx-h2">Tiến trình bước (Stepper)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-stepper">
+              <div class="nx-step done"><span class="nx-step-num"><i class="fa-solid fa-check"></i></span><span>Tài khoản</span></div>
+              <div class="nx-step-line"></div>
+              <div class="nx-step active"><span class="nx-step-num">2</span><span>Cấu hình</span></div>
+              <div class="nx-step-line"></div>
+              <div class="nx-step"><span class="nx-step-num">3</span><span>Hoàn tất</span></div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeStepper"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeStepper">&lt;div class="nx-stepper"&gt;
+  &lt;div class="nx-step done"&gt;&lt;span class="nx-step-num"&gt;1&lt;/span&gt;&lt;span&gt;Tài khoản&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="nx-step-line"&gt;&lt;/div&gt;
+  &lt;div class="nx-step active"&gt;&lt;span class="nx-step-num"&gt;2&lt;/span&gt;&lt;span&gt;Cấu hình&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 36. Toasts -->
+      <section class="nx-doc-section" id="toasts">
+        <h2 class="nx-h2">Thông báo nổi (Toasts)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview nx-d-flex nx-flex-wrap nx-gap-2">
+            <button type="button" class="nx-btn nx-btn-primary" onclick="NoryxUI.toast({title:'Thông báo', message:'Tin nhắn thông báo mặc định.', type:'info'})">Thông tin</button>
+            <button type="button" class="nx-btn nx-btn-success" onclick="NoryxUI.toast({title:'Thành công', message:'Lưu cấu hình thành công!', type:'success'})">Thành công</button>
+            <button type="button" class="nx-btn nx-btn-warning" onclick="NoryxUI.toast({title:'Cảnh báo', message:'Dung lượng bộ nhớ đệm sắp đầy.', type:'warning'})">Cảnh báo</button>
+            <button type="button" class="nx-btn nx-btn-danger" onclick="NoryxUI.toast({title:'Lỗi kết nối', message:'Không thể kết nối máy chủ.', type:'danger'})">Lỗi</button>
+          </div>
+          <div class="nx-example-code-bar"><span>JS</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeToast"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeToast">NoryxUI.toast({ title: "Thành công", message: "Đã lưu!", type: "success" });</pre>
+        </div>
+      </section>
+
+      <!-- 37. Tooltips -->
+      <section class="nx-doc-section" id="tooltips">
+        <h2 class="nx-h2">Chú giải nổi (Tooltips)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <button type="button" class="nx-btn nx-btn-outline-secondary" data-nx-tooltip="Chú giải hiển thị ngay khi di chuột!">Di chuột xem Chú giải</button>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeTip"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeTip">&lt;button data-nx-tooltip="Nội dung chú giải"&gt;Di chuột&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 37b. Helpers -->
+      <section class="nx-doc-section" id="helpers">
+        <h2 class="nx-h2">Trợ giúp (Hover Lift, Icon Link &amp; Cắt chữ)</h2>
+        <div class="nx-example-box">
+          <div class="nx-example-preview">
+            <div class="nx-d-flex nx-flex-wrap nx-align-center nx-gap-3">
+              <div class="nx-card nx-p-3 nx-hover-lift">Thẻ nổi khi di chuột (<code>.nx-hover-lift</code>)</div>
+              <a href="#helpers" class="nx-icon-link">Liên kết có mũi tên <i class="fa-solid fa-arrow-right"></i></a>
+              <div class="nx-truncate" style="max-width:180px;">Đoạn văn bản rất dài sẽ tự động cắt bằng dấu ba chấm...</div>
+            </div>
+          </div>
+          <div class="nx-example-code-bar"><span>HTML</span><button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#codeHelpers"><i class="fa-regular fa-copy"></i> Sao chép</button></div>
+          <pre class="nx-pre" id="codeHelpers">&lt;div class="nx-card nx-p-3 nx-hover-lift"&gt;Hover Lift&lt;/div&gt;
+&lt;a href="#" class="nx-icon-link"&gt;Xem thêm &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;div class="nx-truncate" style="max-width:180px;"&gt;...&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <!-- 38. Utilities -->
+      <section class="nx-doc-section" id="utilities">
+        <h2 class="nx-h2">Lớp Tiện ích (Utilities)</h2>
+        <p class="nx-text-muted">Các lớp tiện ích nhanh: <code>.nx-d-flex</code>, <code>.nx-justify-between</code>, <code>.nx-align-center</code>, <code>.nx-gap-1..5</code>, <code>.nx-p-2..4</code>, <code>.nx-mt-1..4</code>, <code>.nx-mb-1..4</code>, <code>.nx-text-primary/success/warning/danger/muted</code>.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="nx-modal-overlay" id="docsSearchModal">
+    <div class="nx-modal">
+      <div class="nx-modal-header"><h3 class="nx-modal-title">Tìm nhanh Thành phần</h3><button type="button" class="nx-close" data-nx-dismiss="modal">&times;</button></div>
+      <div class="nx-modal-body">
+        <input type="search" id="docsSearchInput" class="nx-input nx-mb-3" placeholder="Gõ tên thành phần (vd: hộp thoại, bảng, nút)..." />
+        <ul class="nx-list-group" id="docsSearchResults" style="max-height:280px;overflow-y:auto;"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Modal -->
+  <div class="nx-modal-overlay" id="docsDemoModal">
+    <div class="nx-modal">
+      <div class="nx-modal-header"><h3 class="nx-modal-title">Hộp thoại NoryxUI</h3><button type="button" class="nx-close" data-nx-dismiss="modal">&times;</button></div>
+      <div class="nx-modal-body"><p class="nx-text-muted nx-m-0">Hộp thoại hỗ trợ kích thước <code>.nx-modal-sm</code>, mặc định, và <code>.nx-modal-lg</code>.</p></div>
+      <div class="nx-modal-footer"><button type="button" class="nx-btn nx-btn-ghost" data-nx-dismiss="modal">Đóng</button><button type="button" class="nx-btn nx-btn-primary" data-nx-dismiss="modal">Đồng ý</button></div>
+    </div>
+  </div>
+
+  <!-- Demo Offcanvas -->
+  <aside class="nx-offcanvas end" id="docsDemoOffcanvas">
+    <div class="nx-offcanvas-header"><h3 class="nx-modal-title">Ngăn kéo NoryxUI</h3><button type="button" class="nx-close" data-nx-dismiss="offcanvas">&times;</button></div>
+    <div class="nx-offcanvas-body"><p class="nx-text-muted nx-fs-sm">Ngăn kéo trượt từ cạnh trái (<code>.start</code>) hoặc phải (<code>.end</code>).</p></div>
+  </aside>
+
+  <!-- Mobile Docs & Site Navigation -->
+  <aside class="nx-offcanvas start" id="mobileDocsNav">
+    <div class="nx-offcanvas-header"><h3 class="nx-modal-title">Tài liệu NoryxUI</h3><button type="button" class="nx-close" data-nx-dismiss="offcanvas">&times;</button></div>
+    <div class="nx-offcanvas-body">
+      <div class="nx-docs-group-title" style="padding-top:0;">Trang</div>
+      <div class="nx-d-flex nx-flex-column nx-gap-1 nx-mb-3">
+        <a class="nx-docs-link" href="index.html">Trang chủ</a>
+        <a class="nx-docs-link active" href="docs.html">Tài liệu</a>
+        <a class="nx-docs-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-docs-link" href="examples.html">Giao diện mẫu</a>
+      </div>
+      <div class="nx-docs-group-title">Thành phần</div>
+      <div class="nx-d-flex nx-flex-column nx-gap-1">
+        <a class="nx-docs-link" href="#containers" data-nx-dismiss="offcanvas">Khung chứa</a>
+        <a class="nx-docs-link" href="#grid" data-nx-dismiss="offcanvas">Hệ thống Lưới</a>
+        <a class="nx-docs-link" href="#tables" data-nx-dismiss="offcanvas">Bảng dữ liệu</a>
+        <a class="nx-docs-link" href="#inputs" data-nx-dismiss="offcanvas">Biểu mẫu &amp; Ô nhập</a>
+        <a class="nx-docs-link" href="#accordion" data-nx-dismiss="offcanvas">Accordion</a>
+        <a class="nx-docs-link" href="#alerts" data-nx-dismiss="offcanvas">Cảnh báo</a>
+        <a class="nx-docs-link" href="#buttons" data-nx-dismiss="offcanvas">Nút bấm</a>
+        <a class="nx-docs-link" href="#cards" data-nx-dismiss="offcanvas">Thẻ &amp; KPI</a>
+        <a class="nx-docs-link" href="#modal" data-nx-dismiss="offcanvas">Hộp thoại</a>
+        <a class="nx-docs-link" href="#tabs" data-nx-dismiss="offcanvas">Thẻ chuyển (Tabs)</a>
+        <a class="nx-docs-link" href="#toasts" data-nx-dismiss="offcanvas">Thông báo nổi</a>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="nx-z1 nx-footer">
+    NoryxUI v1.0.0 · Phát triển bởi <strong>Nguyen Xuan Nam (X2NIOS)</strong> ·
+    <a href="https://x2nios.com" target="_blank" rel="noopener">x2nios.com</a> ·
+    <a href="https://github.com/x2niosvn" target="_blank" rel="noopener">github.com/x2niosvn</a>
+  </footer>
+  <script src="dist/noryxui.js"></script>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/* NoryxUI Documentation & Showcase Site Styles (Borderless) */
+.nx-docs-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 16px 72px;
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.nx-docs-sidebar {
+  position: sticky;
+  top: 82px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.nx-docs-group-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--nx-subtle);
+  padding: 12px 10px 6px;
+}
+.nx-docs-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--nx-muted);
+  text-decoration: none !important;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.nx-docs-link:hover { background: var(--nx-surface-2); color: var(--nx-heading); }
+.nx-docs-link.active { background: rgba(59, 130, 246, 0.13); color: var(--nx-blue); font-weight: 600; }
+
+.nx-doc-section {
+  scroll-margin-top: 84px;
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+}
+
+.nx-example-box {
+  border-radius: var(--nx-radius-lg);
+  background: var(--nx-panel-bg);
+  box-shadow: var(--nx-shadow-card);
+  margin-top: 14px;
+}
+.nx-example-preview { padding: 24px; }
+.nx-example-code-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--nx-subbox-bg);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--nx-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.nx-example-code-bar:first-child {
+  border-radius: var(--nx-radius-lg) var(--nx-radius-lg) 0 0;
+}
+.nx-example-box > .nx-pre { border-radius: 0 0 var(--nx-radius-lg) var(--nx-radius-lg); }
+
+.nx-grid-demo-cell {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--nx-blue);
+  border-radius: 9px;
+  padding: 11px 12px;
+  font-family: var(--nx-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.nx-mobile-docs-btn { display: none !important; }
+@media (max-width: 960px) {
+  .nx-docs-shell { grid-template-columns: minmax(0, 1fr); }
+  .nx-docs-sidebar { display: none; }
+  .nx-mobile-docs-btn { display: inline-flex !important; }
+}
+@media (max-width: 575.98px) {
+  .nx-navbar .nx-kbd { display: none; }
+}
+
+.nx-hero { padding: 68px 0 52px; text-align: center; }
+.nx-hero-emblem {
+  width: 68px; height: 68px;
+  margin: 0 auto 22px;
+  border-radius: 20px;
+  background: var(--nx-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--nx-font-heading);
+  font-size: 30px;
+  font-weight: 800;
+  box-shadow: 0 18px 40px -10px rgba(59, 130, 246, 0.45);
+}
+.nx-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 6px;
+  line-height: 1.15;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.14);
+  color: var(--nx-blue-text);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.nx-hero-sub {
+  max-width: 660px;
+  margin: 14px auto 28px;
+  font-size: 16.5px;
+  color: var(--nx-muted);
+  line-height: 1.62;
+}
+
+.nx-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+  gap: 12px;
+}
+.nx-icon-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 12px;
+  border-radius: var(--nx-radius);
+  background: var(--nx-surface);
+  box-shadow: var(--nx-shadow-card);
+  border: none;
+  color: var(--nx-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+.nx-icon-tile:hover {
+  transform: translateY(-2px);
+  background: var(--nx-surface-2);
+  color: var(--nx-blue);
+}
+.nx-icon-tile .nxi { font-size: 24px; }
+.nx-icon-tile-name {
+  font-family: var(--nx-font-mono);
+  font-size: 11px;
+  color: var(--nx-muted);
+}
+
+.nx-footer {
+  padding: 32px 16px;
+  margin-top: 56px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--nx-subtle);
+}

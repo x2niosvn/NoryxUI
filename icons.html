@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biểu tượng — NoryxUI</title>
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("noryxui.theme") || "dark"); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="dist/noryxui.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+</head>
+<body class="nx-grid">
+  <div class="nx-ambient-glow"></div>
+
+  <header class="nx-navbar">
+    <div class="nx-navbar-inner">
+      <a class="nx-brand" href="index.html">
+        <span class="nx-brand-logo">N</span>
+        <span>Noryx<span class="nx-text-primary">UI</span></span>
+      </a>
+      <nav class="nx-nav-links">
+        <a class="nx-nav-link" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link active" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link" href="examples.html">Giao diện mẫu</a>
+      </nav>
+      <div class="nx-d-flex nx-align-center nx-gap-2">
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon" data-nx-theme-toggle data-nx-tooltip="Đổi Sáng / Tối">
+          <i class="fa-solid fa-sun" data-nx-theme-icon></i>
+        </button>
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon nx-nav-toggle" data-nx-offcanvas="#mobileSiteNav" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="nx-z1 nx-container nx-mt-4" style="padding-bottom:64px;">
+    <div class="nx-mb-4">
+      <span class="nx-eyebrow">HỆ THỐNG BIỂU TƯỢNG</span>
+      <h1 class="nx-display-3">Tích hợp FontAwesome &amp; Google Material Symbols</h1>
+      <p class="nx-lead nx-m-0">
+        NoryxUI tập trung 100% vào thiết kế giao diện (Design System) và tự động căn chỉnh chuẩn xác cho mọi bộ biểu tượng phổ biến như <strong>FontAwesome 6</strong> hoặc <strong>Google Fonts Icons</strong>.
+      </p>
+    </div>
+
+    <div class="nx-row nx-g-4 nx-mb-4">
+      <div class="nx-col-12 nx-col-lg-6">
+        <div class="nx-card nx-p-4" style="height:100%;">
+          <span class="nx-eyebrow">KHUYÊN DÙNG 01</span>
+          <h2 class="nx-h3">FontAwesome 6 (Solid, Regular, Brands)</h2>
+          <p class="nx-text-muted nx-fs-sm">Hỗ trợ hàng nghìn icon giao diện và đầy đủ logo mạng xã hội / công nghệ (<code>fa-brands</code>).</p>
+          <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mb-3">
+            <button type="button" class="nx-btn nx-btn-primary nx-btn-sm"><i class="fa-solid fa-bolt"></i> Hành động</button>
+            <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm"><i class="fa-brands fa-github"></i> GitHub</button>
+            <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm"><i class="fa-brands fa-discord"></i> Discord</button>
+            <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm"><i class="fa-brands fa-telegram"></i> Telegram</button>
+          </div>
+          <pre class="nx-pre">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /&gt;
+&lt;button class="nx-btn nx-btn-primary"&gt;&lt;i class="fa-solid fa-bolt"&gt;&lt;/i&gt; Hành động&lt;/button&gt;</pre>
+        </div>
+      </div>
+
+      <div class="nx-col-12 nx-col-lg-6">
+        <div class="nx-card nx-p-4" style="height:100%;">
+          <span class="nx-eyebrow">KHUYÊN DÙNG 02</span>
+          <h2 class="nx-h3">Google Material Symbols</h2>
+          <p class="nx-text-muted nx-fs-sm">Bộ icon vector biến thiên hiện đại của Google Fonts, tự động căn giữa trong nút bấm và huy hiệu NoryxUI.</p>
+          <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mb-3">
+            <span class="nx-badge nx-badge-primary"><i class="fa-solid fa-circle-check"></i> Đã căn chỉnh</span>
+            <span class="nx-badge nx-badge-success"><i class="fa-solid fa-server"></i> Máy chủ</span>
+            <span class="nx-badge nx-badge-purple"><i class="fa-brands fa-apple"></i> macOS / iOS</span>
+            <span class="nx-badge nx-badge-warning"><i class="fa-brands fa-android"></i> Android</span>
+          </div>
+          <pre class="nx-pre">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" /&gt;
+&lt;span class="material-symbols-rounded"&gt;bolt&lt;/span&gt;</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social & Tech Brands Demo -->
+    <section class="nx-panel nx-p-4">
+      <div class="nx-mb-3">
+        <span class="nx-eyebrow">MẪU BIỂU TƯỢNG MẠNG XÃ HỘI &amp; HỆ THỐNG</span>
+        <h2 class="nx-h3 nx-m-0">Hiển thị đồng bộ trong NoryxUI</h2>
+      </div>
+      <div class="nx-d-flex nx-flex-wrap nx-gap-2">
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-facebook"></i> Facebook</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-x-twitter"></i> X / Twitter</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-youtube"></i> YouTube</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-instagram"></i> Instagram</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-docker"></i> Docker</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-golang"></i> Go</span>
+        <span class="nx-btn nx-btn-outline-secondary"><i class="fa-brands fa-node-js"></i> Node.js</span>
+      </div>
+    </section>
+  </main>
+
+  <aside class="nx-offcanvas start" id="mobileSiteNav">
+    <div class="nx-offcanvas-header"><h3 class="nx-modal-title">NoryxUI</h3><button type="button" class="nx-close" data-nx-dismiss="offcanvas">&times;</button></div>
+    <div class="nx-offcanvas-body">
+      <div class="nx-d-flex nx-flex-column nx-gap-1">
+        <a class="nx-nav-link" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link active" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link" href="examples.html">Giao diện mẫu</a>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="nx-z1 nx-footer">
+    NoryxUI v1.0.0 · Phát triển bởi <strong>Nguyen Xuan Nam (X2NIOS)</strong> ·
+    <a href="https://x2nios.com" target="_blank" rel="noopener">x2nios.com</a> ·
+    <a href="https://github.com/x2niosvn" target="_blank" rel="noopener">github.com/x2niosvn</a>
+  </footer>
+
+  <script src="dist/noryxui.js"></script>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giao diện mẫu — NoryxUI</title>
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("noryxui.theme") || "dark"); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="dist/noryxui.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+</head>
+<body class="nx-grid">
+  <div class="nx-ambient-glow"></div>
+
+  <header class="nx-navbar">
+    <div class="nx-navbar-inner">
+      <a class="nx-brand" href="index.html">
+        <span class="nx-brand-logo">N</span>
+        <span>Noryx<span class="nx-text-primary">UI</span></span>
+      </a>
+      <nav class="nx-nav-links">
+        <a class="nx-nav-link" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link active" href="examples.html">Giao diện mẫu</a>
+      </nav>
+      <div class="nx-d-flex nx-align-center nx-gap-2">
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon" data-nx-theme-toggle data-nx-tooltip="Đổi Sáng / Tối">
+          <i class="fa-solid fa-sun" data-nx-theme-icon></i>
+        </button>
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon nx-nav-toggle" data-nx-offcanvas="#mobileSiteNav" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="nx-z1 nx-container nx-mt-4" style="padding-bottom:64px;">
+    <div class="nx-mb-4">
+      <span class="nx-eyebrow">GIAO DIỆN MẪU</span>
+      <h1 class="nx-display-3">Các mẫu trang dựng bằng NoryxUI</h1>
+      <p class="nx-lead nx-m-0">Các bố cục thực tế sử dụng 100% lớp CSS <code>.nx-*</code> và bộ biểu tượng <code>NoryxIcons</code>.</p>
+    </div>
+
+    <section class="nx-panel nx-p-4 nx-mb-4">
+      <div class="nx-d-flex nx-justify-between nx-align-center nx-flex-wrap nx-gap-2 nx-mb-3">
+        <div>
+          <span class="nx-eyebrow">MẪU 01 · BẢNG ĐIỀU KHIỂN QUẢN TRỊ</span>
+          <h2 class="nx-h3 nx-m-0">Tổng quan Hệ thống &amp; Giám sát Tài nguyên</h2>
+        </div>
+        <span class="nx-status-dot"><span class="dot"></span> 4 Máy chủ Trực tuyến</span>
+      </div>
+
+      <div class="nx-row nx-g-3 nx-mb-3">
+        <div class="nx-col-12 nx-col-sm-6 nx-col-lg-3">
+          <div class="nx-kpi-card">
+            <div class="nx-kpi-ico"><i class="fa-solid fa-bolt"></i></div>
+            <div><div class="nx-kpi-label">Yêu cầu / 24h</div><div class="nx-kpi-val">128,490</div></div>
+          </div>
+        </div>
+        <div class="nx-col-12 nx-col-sm-6 nx-col-lg-3">
+          <div class="nx-kpi-card">
+            <div class="nx-kpi-ico emerald"><i class="fa-solid fa-circle-check"></i></div>
+            <div><div class="nx-kpi-label">Tỷ lệ Thành công</div><div class="nx-kpi-val">99.82%</div></div>
+          </div>
+        </div>
+        <div class="nx-col-12 nx-col-sm-6 nx-col-lg-3">
+          <div class="nx-kpi-card">
+            <div class="nx-kpi-ico amber"><i class="fa-solid fa-gauge-high"></i></div>
+            <div><div class="nx-kpi-label">Độ trễ Trung bình</div><div class="nx-kpi-val">38ms</div></div>
+          </div>
+        </div>
+        <div class="nx-col-12 nx-col-sm-6 nx-col-lg-3">
+          <div class="nx-kpi-card">
+            <div class="nx-kpi-ico rose"><i class="fa-solid fa-key"></i></div>
+            <div><div class="nx-kpi-label">Mã API Đang chạy</div><div class="nx-kpi-val">24</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nx-table-wrap">
+        <table class="nx-table nx-table-hover">
+          <thead>
+            <tr><th>Máy chủ</th><th>Khu vực</th><th>Mức tải</th><th>Trạng thái</th><th class="nx-text-right">Thao tác</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="nx-fw-bold">node-alpha.noryx.dev</td>
+              <td><span class="nx-mono">ap-southeast-1</span></td>
+              <td style="min-width:160px;"><div class="nx-progress"><div class="nx-progress-bar success" style="width:72%"></div></div></td>
+              <td><span class="nx-badge nx-badge-success">Hoạt động</span></td>
+              <td class="nx-text-right"><button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm" onclick="NoryxUI.toast({title:'Đã kiểm tra kết nối', message:'node-alpha phản hồi 14ms', type:'info'})">Kiểm tra</button></td>
+            </tr>
+            <tr>
+              <td class="nx-fw-bold">node-beta.noryx.dev</td>
+              <td><span class="nx-mono">us-east-1</span></td>
+              <td><div class="nx-progress"><div class="nx-progress-bar warning" style="width:88%"></div></div></td>
+              <td><span class="nx-badge nx-badge-warning">Tải cao</span></td>
+              <td class="nx-text-right"><button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm" onclick="NoryxUI.toast({title:'Đã kiểm tra kết nối', message:'node-beta phản hồi 48ms', type:'info'})">Kiểm tra</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="nx-row nx-g-3">
+      <div class="nx-col-12 nx-col-lg-6">
+        <div class="nx-card nx-p-4" style="height:100%;">
+          <span class="nx-eyebrow">MẪU 02 · BIỂU MẪU ĐĂNG NHẬP</span>
+          <h2 class="nx-h3 nx-mb-3">Đăng nhập hệ thống</h2>
+          <div class="nx-mb-3">
+            <label class="nx-label">Địa chỉ Email</label>
+            <input type="email" class="nx-input" placeholder="admin@noryx.dev" />
+          </div>
+          <div class="nx-mb-3">
+            <label class="nx-label">Mật khẩu</label>
+            <input type="password" class="nx-input" placeholder="••••••••" />
+          </div>
+          <div class="nx-d-flex nx-justify-between nx-align-center nx-mb-3">
+            <label class="nx-check"><input type="checkbox" checked /> <span>Ghi nhớ phiên</span></label>
+            <a href="#" class="nx-fs-sm">Quên mật khẩu?</a>
+          </div>
+          <button type="button" class="nx-btn nx-btn-primary nx-w-100" onclick="NoryxUI.toast({title:'Đăng nhập thành công', type:'success'})">
+            <i class="fa-solid fa-lock"></i> Đăng nhập
+          </button>
+        </div>
+      </div>
+
+      <div class="nx-col-12 nx-col-lg-6">
+        <div class="nx-card nx-p-4" style="height:100%;">
+          <span class="nx-eyebrow">MẪU 03 · CÀI ĐẶT NHANH</span>
+          <h2 class="nx-h3 nx-mb-3">Tùy chỉnh Hệ thống</h2>
+          <ul class="nx-list-group nx-mb-3">
+            <li class="nx-list-item">
+              <div>
+                <div class="nx-fw-bold nx-text-heading">Tự động mở rộng Worker</div>
+                <div class="nx-fs-xs nx-text-muted">Tăng tài nguyên tự động khi tải vượt 80%</div>
+              </div>
+              <label class="nx-switch"><input type="checkbox" checked /></label>
+            </li>
+            <li class="nx-list-item">
+              <div>
+                <div class="nx-fw-bold nx-text-heading">Tường lửa Xác thực</div>
+                <div class="nx-fs-xs nx-text-muted">Yêu cầu chữ ký HMAC cho mọi yêu cầu</div>
+              </div>
+              <label class="nx-switch"><input type="checkbox" checked /></label>
+            </li>
+          </ul>
+          <button type="button" class="nx-btn nx-btn-soft-primary" onclick="NoryxUI.toast({title:'Đã lưu cài đặt', type:'success'})">
+            <i class="fa-solid fa-sliders"></i> Lưu thay đổi
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mẫu 04: Bố cục Quản trị có Sidebar -->
+    <section class="nx-panel nx-p-4 nx-mt-4">
+      <div class="nx-mb-3">
+        <span class="nx-eyebrow">MẪU 04 · BỐ CỤC QUẢN TRỊ CÓ SIDEBAR</span>
+        <h2 class="nx-h3 nx-m-0">Khung Quản trị Sidebar + Nội dung</h2>
+      </div>
+      <div class="nx-d-flex nx-flex-wrap nx-gap-4">
+        <aside class="nx-sidebar">
+          <div class="nx-sidebar-label">Điều hướng</div>
+          <a class="nx-sidebar-link active" href="#sidebarDemo"><i class="fa-solid fa-house"></i> Tổng quan</a>
+          <a class="nx-sidebar-link" href="#sidebarDemo"><i class="fa-solid fa-server"></i> Máy chủ</a>
+          <a class="nx-sidebar-link" href="#sidebarDemo"><i class="fa-solid fa-key"></i> Mã API</a>
+          <a class="nx-sidebar-link" href="#sidebarDemo"><i class="fa-solid fa-gear"></i> Cài đặt</a>
+        </aside>
+        <div class="nx-flex-1">
+          <div class="nx-card nx-p-3 nx-mb-3">
+            <div class="nx-fw-bold nx-text-heading nx-mb-1">Khu vực Nội dung Chính</div>
+            <p class="nx-text-muted nx-fs-sm nx-m-0">Kết hợp <code>.nx-sidebar</code> bên trái với <code>.nx-flex-1</code> bên phải để dựng trang quản trị hoàn chỉnh.</p>
+          </div>
+          <pre class="nx-pre">&lt;div class="nx-d-flex nx-gap-4"&gt;
+  &lt;aside class="nx-sidebar"&gt;...&lt;/aside&gt;
+  &lt;main class="nx-flex-1"&gt;...&lt;/main&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="nx-offcanvas start" id="mobileSiteNav">
+    <div class="nx-offcanvas-header"><h3 class="nx-modal-title">NoryxUI</h3><button type="button" class="nx-close" data-nx-dismiss="offcanvas">&times;</button></div>
+    <div class="nx-offcanvas-body">
+      <div class="nx-d-flex nx-flex-column nx-gap-1">
+        <a class="nx-nav-link" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link active" href="examples.html">Giao diện mẫu</a>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="nx-z1 nx-footer">
+    NoryxUI v1.0.0 · Phát triển bởi <strong>Nguyen Xuan Nam (X2NIOS)</strong> ·
+    <a href="https://x2nios.com" target="_blank" rel="noopener">x2nios.com</a> ·
+    <a href="https://github.com/x2niosvn" target="_blank" rel="noopener">github.com/x2niosvn</a>
+  </footer>
+  <script src="dist/noryxui.js"></script>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

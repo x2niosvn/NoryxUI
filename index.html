@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NoryxUI · Thư viện Giao diện &amp; Bộ Icon Độc Quyền</title>
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("noryxui.theme") || "dark"); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="dist/noryxui.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+</head>
+<body class="nx-grid">
+  <div class="nx-ambient-glow"></div>
+
+  <header class="nx-navbar">
+    <div class="nx-navbar-inner">
+      <a class="nx-brand" href="index.html">
+        <span class="nx-brand-logo">N</span>
+        <span>Noryx<span class="nx-text-primary">UI</span></span>
+        <span class="nx-badge nx-badge-primary nx-fs-xs">v1.0</span>
+      </a>
+
+      <nav class="nx-nav-links">
+        <a class="nx-nav-link active" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link" href="examples.html">Giao diện mẫu</a>
+      </nav>
+
+      <div class="nx-d-flex nx-align-center nx-gap-2">
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon" data-nx-theme-toggle data-nx-tooltip="Đổi Sáng / Tối">
+          <i class="fa-solid fa-sun" data-nx-theme-icon></i>
+        </button>
+        <a href="docs.html" class="nx-btn nx-btn-primary nx-btn-sm nx-navbar-cta">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Xem Tài liệu</span>
+        </a>
+        <button type="button" class="nx-btn nx-btn-ghost nx-btn-icon nx-nav-toggle" data-nx-offcanvas="#mobileSiteNav" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="nx-z1 nx-container">
+    <!-- 1. Flagship Hero -->
+    <section class="nx-hero" style="padding: 72px 0 48px;">
+      <div class="nx-hero-emblem">N</div>
+      <div class="nx-hero-badge">
+        <span class="nx-status-dot"><span class="dot"></span></span>
+        <span>Phiên bản v1.0.0 · Giao diện Kính Mờ Không Viền · Hỗ trợ FontAwesome &amp; Google Icons</span>
+      </div>
+
+      <h1 class="nx-display-1">
+        Xây dựng giao diện nhanh,<br />
+        mượt mà cùng <span class="nx-text-primary">NoryxUI</span>
+      </h1>
+
+      <p class="nx-hero-sub">
+        Bộ công cụ CSS &amp; JavaScript thuần mạnh mẽ với thiết kế kính mờ không viền,
+        lưới 12 cột linh hoạt, 41 nhóm thành phần tương tác, chế độ Sáng/Tối tức thì và 217 biểu tượng vector độc quyền.
+      </p>
+
+      <div class="nx-d-flex nx-justify-center nx-flex-wrap nx-gap-2 nx-mb-4">
+        <a href="docs.html" class="nx-btn nx-btn-primary nx-btn-lg">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Đọc Tài liệu</span>
+        </a>
+        <a href="examples.html" class="nx-btn nx-btn-outline-secondary nx-btn-lg">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Xem Giao diện mẫu</span>
+        </a>
+        <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-lg" onclick="NoryxUI.toast({ title: 'Chào mừng đến với NoryxUI!', message: 'Hệ thống thông báo tự động thích ứng Sáng & Tối.', type: 'success' })">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Thử Thông báo</span>
+        </button>
+      </div>
+
+      <div class="nx-d-flex nx-justify-center nx-flex-wrap nx-gap-3 nx-fs-sm nx-text-subtle">
+        <span>Phiên bản <strong class="nx-text-heading">v1.0.0</strong></span>
+        <span>·</span>
+        <span><strong class="nx-text-heading">52</strong> Mục Tài liệu</span>
+        <span>·</span>
+        <span>Hỗ trợ <strong class="nx-text-heading">FontAwesome &amp; Google Icons</strong></span>
+        <span>·</span>
+        <span>Font <strong class="nx-text-heading">Inter</strong> nhúng sẵn</span>
+      </div>
+    </section>
+
+    <!-- 2. Bắt đầu theo cách của bạn -->
+    <section class="nx-mb-4" style="padding: 24px 0 36px;">
+      <div class="nx-row nx-g-4 nx-align-center">
+        <div class="nx-col-12 nx-col-lg-5">
+          <div class="nx-kpi-ico nx-mb-2"><i class="fa-solid fa-terminal"></i></div>
+          <span class="nx-eyebrow">CÀI ĐẶT NHANH CHÓNG</span>
+          <h2 class="nx-display-4">Bắt đầu chỉ với 3 dòng mã</h2>
+          <p class="nx-text-muted">
+            Không cần cài đặt công cụ biên dịch phức tạp. Chỉ cần nhúng tệp CSS, bộ biểu tượng và JavaScript của NoryxUI vào dự án HTML, Go, Python hoặc Node.js của bạn.
+          </p>
+          <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mt-3">
+            <a href="docs.html#containers" class="nx-btn nx-btn-soft-primary nx-btn-sm">
+              <span>Khám phá Bố cục</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="docs.html#buttons" class="nx-btn nx-btn-ghost nx-btn-sm">Xem Nút &amp; Thẻ</a>
+          </div>
+        </div>
+
+        <div class="nx-col-12 nx-col-lg-7">
+          <div class="nx-card nx-mb-3">
+            <div class="nx-card-header">
+              <span class="nx-d-inline-flex nx-align-center nx-gap-2 nx-fs-sm">
+                <i class="fa-solid fa-code nx-text-primary"></i> Nhúng CSS &amp; JavaScript
+              </span>
+              <button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#quickstartHtml">
+                <i class="fa-regular fa-copy"></i> Sao chép
+              </button>
+            </div>
+            <pre class="nx-pre" id="quickstartHtml">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x2niosvn/NoryxUI@main/dist/noryxui.min.css" /&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/x2niosvn/NoryxUI@main/dist/noryxui.min.js" defer&gt;&lt;/script&gt;</pre>
+          </div>
+
+          <div class="nx-card">
+            <div class="nx-card-header">
+              <span class="nx-d-inline-flex nx-align-center nx-gap-2 nx-fs-sm">
+                <i class="fa-solid fa-bolt nx-text-primary"></i> Gọi API JavaScript tức thì
+              </span>
+              <button type="button" class="nx-btn nx-btn-ghost nx-btn-sm" data-copy-target="#quickstartJs">
+                <i class="fa-regular fa-copy"></i> Sao chép
+              </button>
+            </div>
+            <pre class="nx-pre" id="quickstartJs">NoryxUI.theme.toggle(event); // Hiệu ứng lan tỏa Sáng/Tối
+NoryxUI.toast({ title: "Thành công!", type: "success" });
+NoryxUI.modal.open("#myModal");</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Interactive Component Playground -->
+    <section class="nx-panel nx-p-4 nx-mb-4">
+      <div class="nx-row nx-g-4 nx-align-center">
+        <div class="nx-col-12 nx-col-lg-5">
+          <div class="nx-kpi-ico emerald nx-mb-2"><i class="fa-solid fa-cubes"></i></div>
+          <span class="nx-eyebrow">THÀNH PHẦN TƯƠNG TÁC</span>
+          <h2 class="nx-h2">Trải nghiệm trực tiếp ngay tại đây</h2>
+          <p class="nx-text-muted">
+            Mọi thành phần đều được thiết kế không viền cứng, chuyển động mượt mà khi đóng/mở và tự động căn chỉnh chuẩn xác.
+          </p>
+          <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mt-3">
+            <button type="button" class="nx-btn nx-btn-primary nx-btn-sm" data-nx-modal="#homeDemoModal">
+              <i class="fa-solid fa-layer-group"></i> Mở Hộp thoại
+            </button>
+            <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-sm" data-nx-popover="Hộp nổi tự động tránh mép màn hình và không bị cắt bởi khung chứa." data-nx-popover-title="Hộp nổi NoryxUI">
+              <i class="fa-solid fa-circle-info"></i> Mở Hộp nổi
+            </button>
+            <button type="button" class="nx-btn nx-btn-outline-secondary nx-btn-sm" data-nx-tooltip="Chú giải nổi mượt mà!">
+              Di chuột xem Chú giải
+            </button>
+          </div>
+        </div>
+
+        <div class="nx-col-12 nx-col-lg-7">
+          <div class="nx-card" style="padding: 12px 20px 20px;">
+            <div class="nx-tabs nx-mb-3">
+              <button type="button" class="nx-tab-btn active" data-nx-tab="#playBtns">Nút &amp; Huy hiệu</button>
+              <button type="button" class="nx-tab-btn" data-nx-tab="#playForms">Biểu mẫu</button>
+              <button type="button" class="nx-tab-btn" data-nx-tab="#playStatus">Tiến trình &amp; Cảnh báo</button>
+            </div>
+
+            <div>
+              <div class="nx-tab-pane active" id="playBtns">
+                <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mb-3">
+                  <button type="button" class="nx-btn nx-btn-primary nx-btn-sm">Nút Chính</button>
+                  <button type="button" class="nx-btn nx-btn-success nx-btn-sm">Thành công</button>
+                  <button type="button" class="nx-btn nx-btn-danger nx-btn-sm">Nguy hiểm</button>
+                  <button type="button" class="nx-btn nx-btn-soft-primary nx-btn-pill nx-btn-sm">Bo tròn</button>
+                </div>
+                <div class="nx-d-flex nx-flex-wrap nx-align-center nx-gap-2">
+                  <span class="nx-badge nx-badge-primary">Mới v1.0</span>
+                  <span class="nx-badge nx-badge-success">Hoạt động</span>
+                  <span class="nx-badge nx-badge-warning">Cảnh báo</span>
+                  <span class="nx-badge nx-badge-purple">Cao cấp</span>
+                  <span class="nx-status-dot"><span class="dot"></span> Trực tuyến</span>
+                </div>
+              </div>
+
+              <div class="nx-tab-pane" id="playForms">
+                <div class="nx-row nx-g-2">
+                  <div class="nx-col-12 nx-col-sm-6">
+                    <div class="nx-floating">
+                      <input type="text" class="nx-input" id="homeFloatName" placeholder=" " value="NoryxUI Framework" />
+                      <label for="homeFloatName">Tên dự án</label>
+                    </div>
+                  </div>
+                  <div class="nx-col-12 nx-col-sm-6 nx-d-flex nx-align-center nx-gap-3">
+                    <label class="nx-switch"><input type="checkbox" checked /> <span>Kích hoạt API</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nx-tab-pane" id="playStatus">
+                <div class="nx-progress nx-mb-3"><div class="nx-progress-bar success striped" style="width:78%"></div></div>
+                <div class="nx-alert nx-alert-primary">
+                  <i class="fa-solid fa-circle-info nx-text-primary"></i>
+                  <div class="nx-flex-1">Tất cả 41 nhóm thành phần đã sẵn sàng sử dụng.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Live CSS Variables & Accent Picker -->
+    <section class="nx-panel nx-p-4 nx-mb-4">
+      <div class="nx-row nx-g-4 nx-align-center">
+        <div class="nx-col-12 nx-col-lg-6">
+          <div class="nx-kpi-ico purple nx-mb-2"><i class="fa-solid fa-palette"></i></div>
+          <span class="nx-eyebrow">TÙY BIẾN THỜI GIAN THỰC</span>
+          <h2 class="nx-h2">Đổi Giao diện &amp; Màu chủ đạo</h2>
+          <p class="nx-text-muted">
+            Mọi thành phần đều dùng biến CSS <code>--nx-*</code>. Thử nhấn chọn chế độ Sáng/Tối (hiệu ứng lan tỏa hình tròn) hoặc đổi màu chủ đạo bên cạnh để xem toàn trang thay đổi ngay lập tức.
+          </p>
+          <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mt-3">
+            <button type="button" class="nx-btn nx-btn-primary" onclick="NoryxUI.theme.set('dark', event)">
+              <i class="fa-solid fa-moon"></i> Chế độ Tối
+            </button>
+            <button type="button" class="nx-btn nx-btn-outline-secondary" onclick="NoryxUI.theme.set('light', event)">
+              <i class="fa-solid fa-sun"></i> Chế độ Sáng
+            </button>
+          </div>
+        </div>
+
+        <div class="nx-col-12 nx-col-lg-6">
+          <div class="nx-card nx-p-3">
+            <div class="nx-label nx-mb-2">Chọn màu chủ đạo (--nx-blue)</div>
+            <div class="nx-d-flex nx-flex-wrap nx-gap-2 nx-mb-3">
+              <button type="button" class="nx-btn nx-btn-sm" style="background:#3b82f6;color:#fff;" onclick="setAccent('#3b82f6','#2563eb','#60a5fa')">Xanh Dương</button>
+              <button type="button" class="nx-btn nx-btn-sm" style="background:#10b981;color:#fff;" onclick="setAccent('#10b981','#059669','#34d399')">Ngọc Lục Bảo</button>
+              <button type="button" class="nx-btn nx-btn-sm" style="background:#8b5cf6;color:#fff;" onclick="setAccent('#8b5cf6','#7c3aed','#a78bfa')">Tím Cyber</button>
+              <button type="button" class="nx-btn nx-btn-sm" style="background:#f59e0b;color:#09090b;" onclick="setAccent('#f59e0b','#d97706','#fbbf24')">Hổ Phách</button>
+              <button type="button" class="nx-btn nx-btn-sm" style="background:#f43f5e;color:#fff;" onclick="setAccent('#f43f5e','#e11d48','#fb7185')">Hồng Rose</button>
+            </div>
+            <pre class="nx-pre">:root {
+  --nx-bg: #0c0c0f;
+  --nx-panel-bg: #121217;
+  --nx-card-bg: #1b1b24;
+  --nx-blue: #3b82f6;
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Icon Compatibility Showcase -->
+    <section class="nx-mb-4" style="padding: 18px 0;">
+      <div class="nx-row nx-g-4 nx-align-center">
+        <div class="nx-col-12 nx-col-lg-5">
+          <div class="nx-kpi-ico amber nx-mb-2"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <span class="nx-eyebrow">HỆ THỐNG BIỂU TƯỢNG</span>
+          <h2 class="nx-h2">Tương thích FontAwesome &amp; Google Icons</h2>
+          <p class="nx-text-muted">
+            NoryxUI tập trung vào thiết kế giao diện và tự động căn chỉnh chuẩn xác cho mọi bộ biểu tượng từ <strong>FontAwesome 6</strong> hoặc <strong>Google Material Symbols</strong>, bao gồm đầy đủ icon hệ thống và mạng xã hội.
+          </p>
+          <a href="icons.html" class="nx-btn nx-btn-primary nx-mt-2">
+            <span>Xem Hướng dẫn Biểu tượng</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="nx-col-12 nx-col-lg-7">
+          <div class="nx-row nx-g-2">
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-solid fa-bolt"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-solid fa-rocket"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-solid fa-shield-halved"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-solid fa-server"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-github"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-discord"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-telegram"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-facebook"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-youtube"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-tiktok"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-apple"></i></div></div>
+            <div class="nx-col-3 nx-col-sm-2"><div class="nx-icon-tile nx-w-100"><i class="fa-brands fa-docker"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="nx-offcanvas start" id="mobileSiteNav">
+    <div class="nx-offcanvas-header">
+      <h3 class="nx-modal-title">NoryxUI</h3>
+      <button type="button" class="nx-close" data-nx-dismiss="offcanvas">&times;</button>
+    </div>
+    <div class="nx-offcanvas-body">
+      <div class="nx-d-flex nx-flex-column nx-gap-1">
+        <a class="nx-nav-link active" href="index.html">Trang chủ</a>
+        <a class="nx-nav-link" href="docs.html">Tài liệu</a>
+        <a class="nx-nav-link" href="icons.html">Biểu tượng</a>
+        <a class="nx-nav-link" href="examples.html">Giao diện mẫu</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="nx-modal-overlay" id="homeDemoModal">
+    <div class="nx-modal">
+      <div class="nx-modal-header">
+        <h3 class="nx-modal-title">Hộp thoại NoryxUI</h3>
+        <button type="button" class="nx-close" data-nx-dismiss="modal">&times;</button>
+      </div>
+      <div class="nx-modal-body">
+        <p class="nx-text-muted nx-m-0">Hộp thoại đóng mở mượt mà, không viền cứng, không làm xê dịch thanh cuộn trang.</p>
+      </div>
+      <div class="nx-modal-footer">
+        <button type="button" class="nx-btn nx-btn-ghost" data-nx-dismiss="modal">Đóng</button>
+        <button type="button" class="nx-btn nx-btn-primary" data-nx-dismiss="modal" onclick="NoryxUI.toast({ title: 'Đã xác nhận', type: 'success' })">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="nx-z1 nx-footer">
+    NoryxUI v1.0.0 · Phát triển bởi <strong>Nguyen Xuan Nam (X2NIOS)</strong> ·
+    <a href="https://x2nios.com" target="_blank" rel="noopener">x2nios.com</a> ·
+    <a href="https://github.com/x2niosvn" target="_blank" rel="noopener">github.com/x2niosvn</a>
+  </footer>
+  <script src="dist/noryxui.js"></script>
+  <script src="assets/docs.js"></script>
+  <script>
+    function setAccent(main, dark, text) {
+      const r = document.documentElement.style;
+      r.setProperty("--nx-blue", main);
+      r.setProperty("--nx-blue-dark", dark);
+      r.setProperty("--nx-blue-text", text);
+      NoryxUI.toast({ title: "Đã đổi màu chủ đạo", message: main, type: "info", duration: 1800 });
+    }
+    async function copyIcon(name) {
+      const code = `<i class="nxi nxi-${name}"></i>`;
+      try { await navigator.clipboard.writeText(code); } catch (_) {}
+      NoryxUI.toast({ title: "Đã sao chép biểu tượng", message: code, type: "success", duration: 2000 });
+    }
+  </script>
+</body>
+</html>
